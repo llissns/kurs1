@@ -50,7 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbConnector.cs" />
+    <Compile Include="Classes\Credential.cs" />
+    <Compile Include="Classes\DbConnector.cs" />
     <Compile Include="Forms\Authentication.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,7 +63,6 @@
     </Compile>
     <Compile Include="Forms\.Designer.cs">
       <DependentUpon>Registration.cs</DependentUpon>
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MainScreen.cs">
       <SubType>Form</SubType>

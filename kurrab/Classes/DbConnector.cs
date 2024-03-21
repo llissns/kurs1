@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.OleDb;
 using System.Security.Cryptography;
 
-namespace kurrab
+namespace kurrab.Classes
 {
     internal class DbConnector
     {
