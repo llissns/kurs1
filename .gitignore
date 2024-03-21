@@ -7,6 +7,10 @@
 
 *.cache
 
+bin/
+obj/
+Debug/
+Release/
 
 obj/Release/**
 obj/Debug/**
