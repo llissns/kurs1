@@ -13,10 +13,10 @@ namespace kurrab.Classes
     {
         private static string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Admin\\Desktop\\Database51.accdb";
 
-        public static string getCredentials()
+        public static List<Credential> getCredentials()
         {
             string queryString = "SELECT * FROM Authentication";
-            string result = "";
+            List<Credential> result = new List<Credential>();
 
             using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
@@ -26,25 +26,12 @@ namespace kurrab.Classes
 
                 while (reader.Read())
                 {
-                    result += reader.GetString(1) + ":" + reader.GetString(2) + "\n\r";
+                    result.Add(new Credential(reader.GetString(1), reader.GetString(2)));
                 }
                 reader.Close();
             }
 
             return result;
         }
-        public class Credential
-        {
-            public string Login { get; set; }
-            private string PasswordHash { get; set; }
-
-            public Credential(string login, string password)
-            {
-                Login = Login;
-                PasswordHash = password;
-            }
-           
-        }
-       
     }
 }

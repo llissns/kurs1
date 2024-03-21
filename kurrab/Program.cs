@@ -1,10 +1,10 @@
-﻿using System.Data;
-using System.Data.OleDb;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Security.Authentication;
 using System.Windows.Forms;
+
+using kurrab.Classes;
+using kurrab.Forms;
 
 namespace kurrab
 {
@@ -18,8 +18,9 @@ namespace kurrab
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            string authdata = DbConnector.getCredentials();
-            Application.Run(new Form1());
+            List<Credential> authdata = DbConnector.getCredentials();
+
+            Application.Run(new Authentication(authdata));
         }
     }
 }

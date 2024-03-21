@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace kurrab.Classes
 {
-    internal class Credential
+    public class Credential
     {
         public string login;
         public string password;

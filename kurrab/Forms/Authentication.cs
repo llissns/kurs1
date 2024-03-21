@@ -9,13 +9,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using kurrab.Classes;
+
 namespace kurrab.Forms
 {
-    public partial class Form1 : Form
+    public partial class Authentication : Form
     {
-        public Form1()
+        public Authentication()
         {
             InitializeComponent();
+        }
+
+        public Authentication(List<Credential> creds)
+        {
+            InitializeComponent();
+
+
         }
 
         private void label3_Click(object sender, EventArgs e)

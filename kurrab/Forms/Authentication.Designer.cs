@@ -1,6 +1,6 @@
-﻿namespace kurrab
+﻿namespace kurrab.Forms
 {
-    partial class Form1
+    partial class Authentication
     {
         /// <summary>
         /// Обязательная переменная конструктора.
