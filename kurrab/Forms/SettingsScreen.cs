@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace kurrab.Forms
+namespace kurrab.Formsssssssssssssssssssssss
 {
     public partial class SettingsScreen : Form
     {
