@@ -51,70 +51,70 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbConnector.cs" />
-    <Compile Include="Authentication.cs">
+    <Compile Include="Forms\Authentication.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Authentication.Designer.cs">
+    <Compile Include="Forms\Authentication.Designer.cs">
       <DependentUpon>Authentication.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registration.cs">
+    <Compile Include="Forms\Registration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include=".Designer.cs">
+    <Compile Include="Forms\.Designer.cs">
       <DependentUpon>Registration.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainScreen.cs">
+    <Compile Include="Forms\MainScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainScreen.Designer.cs">
+    <Compile Include="Forms\MainScreen.Designer.cs">
       <DependentUpon>MainScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddingAndRemovingStudents.cs">
+    <Compile Include="Forms\AddingAndRemovingStudents.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddingAndRemovingStudents.Designer.cs">
+    <Compile Include="Forms\AddingAndRemovingStudents.Designer.cs">
       <DependentUpon>AddingAndRemovingStudents.cs</DependentUpon>
     </Compile>
-    <Compile Include="StudentList.cs">
+    <Compile Include="Forms\StudentList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StudentList.Designer.cs">
+    <Compile Include="Forms\StudentList.Designer.cs">
       <DependentUpon>StudentList.cs</DependentUpon>
     </Compile>
-    <Compile Include="AttendanceReport.cs">
+    <Compile Include="Forms\AttendanceReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AttendanceReport.Designer.cs">
+    <Compile Include="Forms\AttendanceReport.Designer.cs">
       <DependentUpon>AttendanceReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="SettingsScreen.cs">
+    <Compile Include="Forms\SettingsScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SettingsScreen.Designer.cs">
+    <Compile Include="Forms\SettingsScreen.Designer.cs">
       <DependentUpon>SettingsScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Authentication.resx">
+    <EmbeddedResource Include="Forms\Authentication.resx">
       <DependentUpon>Authentication.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registration.resx">
+    <EmbeddedResource Include="Forms\Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainScreen.resx">
+    <EmbeddedResource Include="Forms\MainScreen.resx">
       <DependentUpon>MainScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddingAndRemovingStudents.resx">
+    <EmbeddedResource Include="Forms\AddingAndRemovingStudents.resx">
       <DependentUpon>AddingAndRemovingStudents.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StudentList.resx">
+    <EmbeddedResource Include="Forms\StudentList.resx">
       <DependentUpon>StudentList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AttendanceReport.resx">
+    <EmbeddedResource Include="Forms\AttendanceReport.resx">
       <DependentUpon>AttendanceReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsScreen.resx">
+    <EmbeddedResource Include="Forms\SettingsScreen.resx">
       <DependentUpon>SettingsScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
