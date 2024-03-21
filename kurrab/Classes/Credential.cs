@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace kurrab.Classes
 {
     public class Credential
     {
-        public string login;
-        public string password;
+        string login;
+        string password;
 
-        Credential(string _login, string _password)
+        public Credential(string _login, string _password)
         {
             login       = _login;
             password    = _password;
         }
+
         public static bool searchForCredential(List<Credential> credential, Credential cred)
         {
          // TODO: надо описать код поиска здесь

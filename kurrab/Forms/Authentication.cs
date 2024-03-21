@@ -15,51 +15,23 @@ namespace kurrab.Forms
 {
     public partial class Authentication : Form
     {
+        List<Credential> creds;
         public Authentication()
         {
             InitializeComponent();
         }
 
-        public Authentication(List<Credential> creds)
+        public Authentication(List<Credential> _creds)
         {
             InitializeComponent();
-
-
+            creds = _creds;
         }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void password_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void login_TextChanged(object sender, EventArgs e)
-        {
-            string login = LoginTextBox.Text;
-            string password = PasswordTextBox.Text;
-
-            if (ICredential.searchForCredential(login, password,List )) 
-            {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Неверный логин или пароль. Пожалуйста, попробуйте снова.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                LoginTextBox.Text = "";
-                PasswordTextBox.Text = "";
-            }
+            // ищем учетные данные в списке, обрабатываем результат
+            Credential.searchForCredential(creds, new Credential(login.Text, password.Text));
+            //TODO: обработать результат тут
         }
     }
 }
