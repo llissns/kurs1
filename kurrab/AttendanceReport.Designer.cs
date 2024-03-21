@@ -1,6 +1,6 @@
 ﻿namespace kurrab
 {
-    partial class Form6
+    partial class AttendanceReport
     {
         /// <summary>
         /// Required designer variable.

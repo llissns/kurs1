@@ -70,7 +70,7 @@
             this.login.Name = "login";
             this.login.Size = new System.Drawing.Size(100, 22);
             this.login.TabIndex = 3;
-            this.login.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.login.TextChanged += new System.EventHandler(this.login_TextChanged);
             // 
             // password
             // 
@@ -78,6 +78,7 @@
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(100, 22);
             this.password.TabIndex = 4;
+            this.password.TextChanged += new System.EventHandler(this.password_TextChanged);
             // 
             // label3
             // 

@@ -1,6 +1,6 @@
 ﻿namespace kurrab
 {
-    partial class Form4
+    partial class SettingsScreen
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // Form4
+            // Form7
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 582);
-            this.Name = "Form4";
-            this.Text = "добавление и удаление студентов";
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "Form7";
+            this.Text = "экран настроек";
             this.ResumeLayout(false);
 
         }

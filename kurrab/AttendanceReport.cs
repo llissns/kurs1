@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace kurrab
 {
-    public partial class Form4 : Form
+    public partial class AttendanceReport : Form
     {
-        public Form4()
+        public AttendanceReport()
         {
             InitializeComponent();
         }

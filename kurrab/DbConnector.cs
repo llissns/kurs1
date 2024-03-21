@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.OleDb;
+using System.Security.Cryptography;
 
 namespace kurrab
 {
@@ -31,6 +32,18 @@ namespace kurrab
             }
 
             return result;
+        }
+        public class Credential
+        {
+            public string Login { get; set; }
+            private string PasswordHash { get; set; }
+
+            public Credential(string login, string password)
+            {
+                Login = Login;
+                PasswordHash = password;
+            }
+           
         }
        
     }
