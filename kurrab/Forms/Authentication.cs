@@ -32,9 +32,15 @@ namespace kurrab.Forms
             // ищем учетные данные в списке, обрабатываем результат
             if (!Credential.searchForCredential(creds, new Credential(login.Text, password.Text)))
             {
-                textBox1.Text = "Логин и пароль не совпали";
+                this.textBox1.Text = "Логин и пароль не совпали";
+                this.password.Text = ""; // затираем пароль тк он не совпал, его все равно вводить заново
             }
-            //TODO: обработать результат тут
+            else
+            {
+                Program.isUserAuthenticated = true; // ставим флаг - аутентификация пройдена
+                Program.userName = login.Text;      // сохраняем имя пользователя
+                this.Close();   // закрываем эту форму принудительно
+            }
         }
 
         private void Authentication_Load(object sender, EventArgs e)
