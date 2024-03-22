@@ -8,6 +8,9 @@ using kurrab.Forms;
 
 namespace kurrab
 {
+    /// <summary>
+    /// класс отвечает за алгоритм (последовательность) работы программы
+    /// </summary>
     internal static class Program
     {
         /// <summary>
@@ -16,10 +19,15 @@ namespace kurrab
         [STAThread]
         static void Main()
         {
+            // системные приготовления для отображения форм
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            // получаем список учетных данных из БД
             List<Credential> authdata = DbConnector.getCredentials();
 
+            // передаем список учетных данных в форму аутентификации для проверки введенного логина и пароля
+            // при этом логика работы аутентификации заключена внутри формы
             Application.Run(new Authentication(authdata));
         }
     }

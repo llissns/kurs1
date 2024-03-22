@@ -9,10 +9,16 @@ using System.Security.Cryptography;
 
 namespace kurrab.Classes
 {
+    /// <summary>
+    /// класс отвечает за общение с базой данных - чтение, запись, поиск
+    /// </summary>
     internal class DbConnector
     {
         private static string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Admin\\Desktop\\Database51.accdb";
 
+        /// <summary>
+        /// Метод выбирает все учетные данные из таблицы (нужно например для сверки с введенными в форме аутентификации)
+        /// </summary>
         public static List<Credential> getCredentials()
         {
             string queryString = "SELECT * FROM Authentication";
