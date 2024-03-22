@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace kurrab
+namespace kurrab.Forms
 {
     public partial class Registration : Form
     {
         public Registration()
         {
             InitializeComponent();
+        }
+
+        private void Registration_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

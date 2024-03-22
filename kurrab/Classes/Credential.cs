@@ -19,7 +19,13 @@ namespace kurrab.Classes
 
         public static bool searchForCredential(List<Credential> credential, Credential cred)
         {
-         // TODO: надо описать код поиска здесь
+            for(int i = 0; i <credential.Count; i++)
+            {
+                if (credential[i].login == cred.login && credential[i].password == cred.password)
+                {
+                    return true;
+                }
+            }
             return false;
         }
     }

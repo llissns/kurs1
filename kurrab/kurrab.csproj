@@ -52,10 +52,10 @@
   <ItemGroup>
     <Compile Include="Classes\Credential.cs" />
     <Compile Include="Classes\DbConnector.cs" />
-    <Compile Include="Registration.cs">
+    <Compile Include="Forms\Registration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registration.Designer.cs">
+    <Compile Include="Forms\Registration.Designer.cs">
       <DependentUpon>Registration.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Authentication.cs">
@@ -123,7 +123,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Registration.resx">
+    <EmbeddedResource Include="Forms\Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
