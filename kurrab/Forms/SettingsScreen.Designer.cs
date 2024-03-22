@@ -1,4 +1,4 @@
-﻿namespace kurrab.Formsssssssssssssssssssssss
+﻿namespace kurrab.Forms
 {
     partial class SettingsScreen
     {
