@@ -1,8 +1,6 @@
-﻿using System.Windows.Forms;
-
-namespace kurrab.Forms
+﻿namespace kurrab.Forms
 {
-    partial class Authentication : Form
+    partial class Authentication
     {
         /// <summary>
         /// Обязательная переменная конструктора.

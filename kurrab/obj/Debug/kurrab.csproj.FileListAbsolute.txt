@@ -36,8 +36,6 @@ C:\Users\Admin\Desktop\kurrab\kurrab\obj\Debug\kurrab.pdb
 C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.csproj.AssemblyReference.cache
 C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.csproj.SuggestedBindingRedirects.cache
 C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.Forms.Authentication.resources
-C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.Forms.Registration.resources
-C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.Forms.Form3.resources
 C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.Forms.AddingAndRemovingStudents.resources
 C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.Forms.StudentList.resources
 C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.Forms.AttendanceReport.resources
@@ -47,3 +45,10 @@ C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.csproj.GenerateRes
 C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.csproj.CoreCompileInputs.cache
 C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.exe
 C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.pdb
+C:\Users\ssolovyev\Source\Repos\kurs1\kurrab\bin\Debug\kurrab.exe.config
+C:\Users\ssolovyev\Source\Repos\kurs1\kurrab\bin\Debug\kurrab.exe
+C:\Users\ssolovyev\Source\Repos\kurs1\kurrab\bin\Debug\kurrab.pdb
+C:\Users\ssolovyev\Source\Repos\kurs1\kurrab\bin\Debug\System.Data.OleDb.dll
+C:\Users\ssolovyev\Source\Repos\kurs1\kurrab\bin\Debug\System.Data.OleDb.xml
+C:\Users\ssolovyev\Source\Repos\kurs1\kurrab\obj\Debug\kurrab.Forms.MainScreen.resources
+C:\Users\ssolovyev\Source\Repos\kurs1\kurrab\obj\Debug\kurrab.csproj.CopyComplete

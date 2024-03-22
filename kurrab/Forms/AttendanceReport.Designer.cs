@@ -1,4 +1,5 @@
-﻿namespace kurrab
+﻿namespace kurrab.Forms
+
 {
     partial class AttendanceReport
     {

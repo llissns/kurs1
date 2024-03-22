@@ -1,6 +1,7 @@
-﻿namespace kurrab
+﻿namespace kurrab.Forms
+
 {
-    partial class Form3
+    partial class MainScreen
     {
         /// <summary>
         /// Required designer variable.
