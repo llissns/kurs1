@@ -30,8 +30,16 @@ namespace kurrab.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             // ищем учетные данные в списке, обрабатываем результат
-            Credential.searchForCredential(creds, new Credential(login.Text, password.Text));
+            if (!Credential.searchForCredential(creds, new Credential(login.Text, password.Text)))
+            {
+                textBox1.Text = "Логин и пароль не совпали";
+            }
             //TODO: обработать результат тут
+        }
+
+        private void Authentication_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
