@@ -33,3 +33,17 @@ C:\Users\Admin\Desktop\kurrab\kurrab\obj\Debug\kurrab.csproj.CoreCompileInputs.c
 C:\Users\Admin\Desktop\kurrab\kurrab\obj\Debug\kurrab.csproj.Up2Date
 C:\Users\Admin\Desktop\kurrab\kurrab\obj\Debug\kurrab.exe
 C:\Users\Admin\Desktop\kurrab\kurrab\obj\Debug\kurrab.pdb
+C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.csproj.AssemblyReference.cache
+C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.csproj.SuggestedBindingRedirects.cache
+C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.Forms.Authentication.resources
+C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.Forms.Registration.resources
+C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.Forms.Form3.resources
+C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.Forms.AddingAndRemovingStudents.resources
+C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.Forms.StudentList.resources
+C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.Forms.AttendanceReport.resources
+C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.Forms.SettingsScreen.resources
+C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.Properties.Resources.resources
+C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.csproj.GenerateResource.cache
+C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.csproj.CoreCompileInputs.cache
+C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.exe
+C:\Users\ssolovyev\source\Repos\kurs1\kurrab\obj\Debug\kurrab.pdb
