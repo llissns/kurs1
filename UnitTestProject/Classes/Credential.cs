@@ -2,10 +2,13 @@
 using System;
 using System.Collections.Generic;
 
-namespace rurrabTests.Classes
+using kurrab.Classes;
+using System.Net;
+
+namespace kurrabUnitTests.Classes
 {
     [TestClass]
-    public class Credential
+    public class CredentialTest
     {
         [TestMethod]
         public void CredentialSearchTest()
@@ -15,16 +18,16 @@ namespace rurrabTests.Classes
             // нужно написать юнит тест этого метода - передавать в него заранее приготовленный список креденшлов 
             // и провреять результат работы
 
-            // Arrange
-            Dictionary<string, string> credentials = new Dictionary<string, string>();
-            credentials.Add("admin", "hash");
-            credentials.Add("user", "hash");
+            // Arrange: creating credential list
+            List < Credential >  credlist = new List<Credential >();
+            credlist.Add(new Credential("admin", "pass"));
+            credlist.Add(new Credential("user", "pass"));
 
 
-            // Act
-            bool result = Credential.searchForCredentials(credentials);
+            // Act: searching for specified credential at list
+            bool result = Credential.searchForCredential(credlist, new Credential("login", "password"));
 
-            // Assert
+            // Assert: making sure result is true
             Assert.IsTrue(result);
         }
     }

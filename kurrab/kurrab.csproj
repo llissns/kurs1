@@ -58,9 +58,6 @@
     <Compile Include="Forms\Authentication.Designer.cs">
       <DependentUpon>Authentication.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Registration.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\MainScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,9 +69,6 @@
     </Compile>
     <Compile Include="Forms\AddingAndRemovingStudents.Designer.cs">
       <DependentUpon>AddingAndRemovingStudents.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Registration.Designer.cs">
-      <DependentUpon>Registration.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\StudentList.cs">
       <SubType>Form</SubType>
@@ -98,9 +92,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Authentication.resx">
       <DependentUpon>Authentication.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Registration.resx">
-      <DependentUpon>Registration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainScreen.resx">
       <DependentUpon>MainScreen.cs</DependentUpon>
