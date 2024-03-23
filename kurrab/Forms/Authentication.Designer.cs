@@ -93,9 +93,9 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(78, 186);
+            this.textBox1.Location = new System.Drawing.Point(28, 186);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.Size = new System.Drawing.Size(213, 22);
             this.textBox1.TabIndex = 6;
             // 
             // Authentication

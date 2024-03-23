@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Security.Authentication;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 using kurrab.Classes;
 using kurrab.Forms;
+using System.Text;
 
 namespace kurrab
 {
@@ -37,9 +39,28 @@ namespace kurrab
             // если аутентификация не пройдена + форма аутентификации закрыта - завершить программу
             if (!isUserAuthenticated)
                 Application.Exit();
-            
+
             // если аутентификация успешно пройдена - продолжить работу со следующей формой уже
-            // TODO: напиши что делать дальше программе тут. Открыть мейн форму?
         }
-    }
+        public static class MD5Helper
+        {
+            public static string GetMd5Hash(string input)
+            {
+                using (MD5 md5Hash = MD5.Create())
+                {
+                    byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+
+                    StringBuilder sBuilder = new StringBuilder();
+
+                    for (int i = 0; i < data.Length; i++)
+                    {
+                        sBuilder.Append(data[i].ToString("x2"));
+                    }
+                    return sBuilder.ToString();
+                }
+            }
+        }
+     }
+
+
 }
