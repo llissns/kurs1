@@ -29,8 +29,11 @@ namespace kurrab.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string inputlogin = login.Text;
+            string inputpassword = password.Text;
+            string hashedPassword = MD5Helper.GetMd5Hash(inputpassword);
             // ищем учетные данные в списке, обрабатываем результат
-            if (!Credential.searchForCredential(creds, new Credential(login.Text, password.Text)))
+            if (!Credential.searchForCredential(creds, new Credential(login.Text, hashedPassword)))
             {
                 this.textBox1.Text = "Логин и пароль не совпали";
                 this.password.Text = ""; // затираем пароль тк он не совпал, его все равно вводить заново
