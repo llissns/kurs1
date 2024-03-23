@@ -9,7 +9,7 @@ namespace kurrabUnitTests.Classes
     public class MD5Helper
     {
         [TestMethod]
-        public void TestGetMD5Hash()
+        public void GetMD5Hash()
         {
             // Arrange: creating password list
             string password1 = "admin12345";
