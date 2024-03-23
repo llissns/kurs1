@@ -126,6 +126,7 @@
             this.Controls.Add(this.label1);
             this.Name = "MainScreen";
             this.Text = "главный экран";
+            this.Load += new System.EventHandler(this.MainScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
