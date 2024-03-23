@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 
 namespace kurrab.Classes
 {
-    internal class MD5Helper
-    {
-        public static class MD5Hash
+        public static class MD5Helper
         {
             public static string GetMd5Hash(string input)
             {
@@ -27,5 +25,5 @@ namespace kurrab.Classes
                 }
             }
         }
-    }
+    
 }

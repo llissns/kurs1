@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\MD5Helper.cs" />
     <Compile Include="Preparations.cs" />
     <Compile Include="Classes\Credential.cs" />
     <Compile Include="Forms\Authentication.cs" />
