@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace kurrab.Forms
+namespace kurrab
 {
-    public partial class AddingAndRemovingStudents : Form
+    public partial class ListTeachers : Form
     {
-        public AddingAndRemovingStudents()
+        public ListTeachers()
         {
             InitializeComponent();
-        }
-
-        private void AddingAndRemovingStudents_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -48,7 +48,7 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            this.dataGridView1.Location = new System.Drawing.Point(43, 114);
+            this.dataGridView1.Location = new System.Drawing.Point(43, 121);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -99,15 +99,16 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Отчет посещаемости студентов";
             // 
-            // Form6
+            // AttendanceReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 640);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Form6";
+            this.Name = "AttendanceReport";
             this.Text = "отчет посещаемости";
+            this.Load += new System.EventHandler(this.AttendanceReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,7 +1,6 @@
-﻿namespace kurrab.Forms
-
+﻿namespace kurrab
 {
-    partial class StudentList
+    partial class ListTeachers
     {
         /// <summary>
         /// Required designer variable.
@@ -37,31 +36,31 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 19);
+            this.label1.Location = new System.Drawing.Point(12, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 16);
+            this.label1.Size = new System.Drawing.Size(166, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Список студентов";
+            this.label1.Text = "список преподавателей";
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 49);
+            this.dataGridView1.Location = new System.Drawing.Point(15, 54);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(773, 548);
+            this.dataGridView1.Size = new System.Drawing.Size(773, 543);
             this.dataGridView1.TabIndex = 1;
             // 
-            // StudentList
+            // ListTeachers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 609);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
-            this.Name = "StudentList";
-            this.Text = "список студентов";
+            this.Name = "ListTeachers";
+            this.Text = "список преподавателей";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

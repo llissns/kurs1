@@ -53,6 +53,12 @@
     <Compile Include="Classes\MD5Helper.cs" />
     <Compile Include="Classes\Credential.cs" />
     <Compile Include="Classes\DbConnector.cs" />
+    <Compile Include="Forms\ListTeachers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ListTeachers.Designer.cs">
+      <DependentUpon>ListTeachers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Registration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\ListTeachers.resx">
+      <DependentUpon>ListTeachers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Authentication.resx">
       <DependentUpon>Authentication.cs</DependentUpon>
     </EmbeddedResource>

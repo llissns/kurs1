@@ -16,5 +16,10 @@ namespace kurrab.Forms
         {
             InitializeComponent();
         }
+
+        private void SettingsScreen_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

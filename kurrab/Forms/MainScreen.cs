@@ -18,7 +18,7 @@ namespace kurrab.Forms
         public static string userName = "";       // saves username for later purposes
 
         // child forms declaration
-        Form settingsForm, authenticationForm;
+        Form settingsForm, authenticationForm, attendancereportForm, studentlistForm, addingandremovingstudentsForm, listteachersForm;
 
         public MainScreen()
         {
@@ -38,6 +38,36 @@ namespace kurrab.Forms
             List<Credential> authdata = DbConnector.getCredentials();
             authenticationForm = new Authentication(authdata);
             authenticationForm.ShowDialog();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            listteachersForm = new ListTeachers();
+            listteachersForm.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            addingandremovingstudentsForm = new AddingAndRemovingStudents();
+            addingandremovingstudentsForm.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            addingandremovingstudentsForm = new AddingAndRemovingStudents();
+            addingandremovingstudentsForm.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            studentlistForm = new StudentList();
+            studentlistForm.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            attendancereportForm = new AttendanceReport();
+            attendancereportForm.ShowDialog();
         }
 
         private void button6_Click(object sender, EventArgs e)

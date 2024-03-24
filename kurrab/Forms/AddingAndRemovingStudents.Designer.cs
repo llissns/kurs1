@@ -31,13 +31,14 @@
         {
             this.SuspendLayout();
             // 
-            // Form4
+            // AddingAndRemovingStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 582);
-            this.Name = "Form4";
+            this.Name = "AddingAndRemovingStudents";
             this.Text = "добавление и удаление студентов";
+            this.Load += new System.EventHandler(this.AddingAndRemovingStudents_Load);
             this.ResumeLayout(false);
 
         }

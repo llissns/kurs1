@@ -30,13 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // Form7
+            // SettingsScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "Form7";
+            this.Name = "SettingsScreen";
             this.Text = "экран настроек";
+            this.Load += new System.EventHandler(this.SettingsScreen_Load);
             this.ResumeLayout(false);
 
         }

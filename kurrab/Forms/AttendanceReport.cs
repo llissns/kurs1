@@ -16,5 +16,10 @@ namespace kurrab.Forms
         {
             InitializeComponent();
         }
+
+        private void AttendanceReport_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
