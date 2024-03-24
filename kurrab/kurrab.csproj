@@ -53,6 +53,7 @@
     <Compile Include="Classes\MD5Helper.cs" />
     <Compile Include="Classes\Credential.cs" />
     <Compile Include="Classes\DbConnector.cs" />
+    <Compile Include="Classes\Student.cs" />
     <Compile Include="Forms\ListTeachers.cs">
       <SubType>Form</SubType>
     </Compile>

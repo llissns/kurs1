@@ -39,5 +39,69 @@ namespace kurrab.Classes
 
             return result;
         }
+
+        // получаем список студентов
+        public static List<Student> getStudentList()
+        {
+            string queryString = "SELECT * FROM ListStudents";
+            List<Student> result = new List<Student>();
+
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                OleDbCommand command = new OleDbCommand(queryString, connection);
+                connection.Open();
+                OleDbDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    result.Add(new Student(reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4)));
+                }
+                reader.Close();
+            }
+
+            return result;
+        }
+
+        // это понадобится в будущем для заполнения БД через формы
+        public static OleDbDataAdapter CreateDataAdapter(string selectCommand)
+        {
+            using (OleDbConnection connection = new OleDbConnection(connectionString)) { 
+                OleDbDataAdapter adapter = new OleDbDataAdapter(selectCommand, connection);
+
+                adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+
+                // Create the Insert, Update and Delete commands.
+                adapter.InsertCommand = new OleDbCommand(
+                    "INSERT INTO Customers (CustomerID, CompanyName) " +
+                    "VALUES (?, ?)");
+
+                adapter.UpdateCommand = new OleDbCommand(
+                    "UPDATE Customers SET CustomerID = ?, CompanyName = ? " +
+                    "WHERE CustomerID = ?");
+
+                adapter.DeleteCommand = new OleDbCommand(
+                    "DELETE FROM Customers WHERE CustomerID = ?");
+
+                // Create the parameters.
+                adapter.InsertCommand.Parameters.Add("@CustomerID",
+                    OleDbType.Char, 5, "CustomerID");
+                adapter.InsertCommand.Parameters.Add("@CompanyName",
+                    OleDbType.VarChar, 40, "CompanyName");
+
+                adapter.UpdateCommand.Parameters.Add("@CustomerID",
+                    OleDbType.Char, 5, "CustomerID");
+                adapter.UpdateCommand.Parameters.Add("@CompanyName",
+                    OleDbType.VarChar, 40, "CompanyName");
+                adapter.UpdateCommand.Parameters.Add("@oldCustomerID",
+                    OleDbType.Char, 5, "CustomerID").SourceVersion =
+                    DataRowVersion.Original;
+
+                adapter.DeleteCommand.Parameters.Add("@CustomerID",
+                    OleDbType.Char, 5, "CustomerID").SourceVersion =
+                    DataRowVersion.Original;
+
+                return adapter;
+            }
+        }
     }
 }
