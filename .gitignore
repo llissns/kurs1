@@ -5,6 +5,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+# database lock files
+*.laccdb
+
 *.cache
 
 **/bin
