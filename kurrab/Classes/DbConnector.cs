@@ -47,7 +47,9 @@ namespace kurrab.Classes
         // получаем список студентов в датасет - это нужно чтобы загрузить датасет в датагрид
         public static DataSet getStudentList()
         {
-            string queryString = "SELECT surname, name, patronymic, group FROM ListStudents";
+            string queryString = "SELECT [ListStudents].surname, [ListStudents].name, [ListStudents].patronymic, [Group].[group] FROM ListStudents " +
+                "INNER JOIN [Group] ON [ListStudents].[group]=[Group].[ID] " +
+                "ORDER BY [ListStudents].surname;";
             DataSet ds = new DataSet();
 
             using (OleDbConnection connection = new OleDbConnection(connectionString))
