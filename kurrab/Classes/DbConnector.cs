@@ -13,10 +13,12 @@ namespace kurrab.Classes
 {
     /// <summary>
     /// класс отвечает за общение с базой данных - чтение, запись, поиск
+    /// на рабочей станции где нет MS Access для работы нужно установить Microsoft Access 2016 Runtime
+    /// https://www.microsoft.com/en-us/download/details.aspx?id=50040
     /// </summary>
     internal class DbConnector
     {
-        private static string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Admin\\Desktop\\Database51.accdb";
+        private static string connectionString = "Provider=Microsoft.ACE.OLEDB.16.0;Data Source=..\\..\\..\\Database51.accdb";
 
         /// <summary>
         /// Метод выбирает все учетные данные из таблицы (нужно например для сверки с введенными в форме аутентификации)
@@ -45,7 +47,7 @@ namespace kurrab.Classes
         // получаем список студентов в датасет - это нужно чтобы загрузить датасет в датагрид
         public static DataSet getStudentList()
         {
-            string queryString = "SELECT * FROM ListStudents";
+            string queryString = "SELECT surname, name, patronymic, group FROM ListStudents";
             DataSet ds = new DataSet();
 
             using (OleDbConnection connection = new OleDbConnection(connectionString))

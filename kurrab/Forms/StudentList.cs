@@ -21,8 +21,20 @@ namespace kurrab.Forms
         {
             InitializeComponent();
             // Fill the DataSet.
+            this.dataGridView1.AutoGenerateColumns = true;
+
+            // Automatically resize the visible rows.
+            dataGridView1.AutoSizeRowsMode =
+                DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+
+            // Set the DataGridView control's border.
+            dataGridView1.BorderStyle = BorderStyle.Fixed3D;
+
+            // Put the cells in edit mode when user enters them.
+            dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically; // prohibit editing
+
             this.dataGridView1.DataSource = DbConnector.getStudentList();
-           
+            this.dataGridView1.DataMember = "ListStudents";
         }
     }
 }
