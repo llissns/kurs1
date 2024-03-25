@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.OleDb;
 using System.Security.Cryptography;
+using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace kurrab.Classes
 {
@@ -40,26 +42,22 @@ namespace kurrab.Classes
             return result;
         }
 
-        // получаем список студентов
-        public static List<Student> getStudentList()
+        // получаем список студентов в датасет - это нужно чтобы загрузить датасет в датагрид
+        public static DataSet getStudentList()
         {
             string queryString = "SELECT * FROM ListStudents";
-            List<Student> result = new List<Student>();
+            DataSet ds = new DataSet();
 
             using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
-                OleDbCommand command = new OleDbCommand(queryString, connection);
+                OleDbDataAdapter dataadapter = new OleDbDataAdapter(queryString, connection);
                 connection.Open();
-                OleDbDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    result.Add(new Student(reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4)));
-                }
-                reader.Close();
+                dataadapter.Fill(ds, "ListStudents");
+                connection.Close();
             }
 
-            return result;
+            // returning dataset
+            return ds;
         }
 
         // это понадобится в будущем для заполнения БД через формы

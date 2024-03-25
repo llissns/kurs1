@@ -21,7 +21,7 @@ namespace kurrab.Forms
         {
             InitializeComponent();
             // Fill the DataSet.
-            List<Student> studentList = DbConnector.getStudentList();
+            this.dataGridView1.DataSource = DbConnector.getStudentList();
            
         }
     }
