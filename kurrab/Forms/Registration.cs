@@ -52,12 +52,23 @@ namespace kurrab.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            // действия по созданию записи БД о студенте
+
+            // 1. верификация полей
+
+            // 2. создание объекта класса Student с этими полями
+
+            // вызов DbConnector.putStuden(Student myNewStudent)
+            // этот метод не готов. в нем надо подробно описать список SQL запросов - в какие таблицы БД какие данные идут
+
+            // 3. вывод об успешном создании студента?
+
+            // 4. обнулить значения текстовых полей в каждом элементе этой формы 
         }
     }
 }
