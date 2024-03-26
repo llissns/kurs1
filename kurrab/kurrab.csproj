@@ -50,11 +50,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AccessRight.cs" />
     <Compile Include="Classes\Teachers.cs" />
     <Compile Include="Classes\MD5Helper.cs" />
     <Compile Include="Classes\Credential.cs" />
     <Compile Include="Classes\DbConnector.cs" />
     <Compile Include="Classes\Student.cs" />
+    <Compile Include="Forms\AccessRights.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AccessRights.Designer.cs">
+      <DependentUpon>AccessRights.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ListTeachers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +112,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AccessRights.resx">
+      <DependentUpon>AccessRights.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ListTeachers.resx">
       <DependentUpon>ListTeachers.cs</DependentUpon>
     </EmbeddedResource>

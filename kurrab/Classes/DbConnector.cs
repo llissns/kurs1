@@ -120,5 +120,21 @@ namespace kurrab.Classes
             }
             return ds;
         }
+        public static DataSet getAccessRights()
+        {
+            string queryString = "SELECT * FROM AccessRights";
+            DataSet ds = new DataSet();
+
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                OleDbDataAdapter dataAdapter = new OleDbDataAdapter(queryString, connection);
+                connection.Open();
+                dataAdapter.Fill(ds, "AccessRights");
+                connection.Close();
+            }
+            return ds;
+        }
+            
+            
     }
 }
