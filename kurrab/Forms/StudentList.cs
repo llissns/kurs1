@@ -33,8 +33,11 @@ namespace kurrab.Forms
             // Put the cells in edit mode when user enters them.
             dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically; // prohibit editing
 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            
             this.dataGridView1.DataSource = DbConnector.getStudentList();
             this.dataGridView1.DataMember = "ListStudents";
+            
         }
 
         private void StudentList_Load(object sender, EventArgs e)

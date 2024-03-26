@@ -23,6 +23,89 @@ namespace kurrab.Classes
         /// <summary>
         /// Метод выбирает все учетные данные из таблицы (нужно например для сверки с введенными в форме аутентификации)
         /// </summary>
+
+        public static List<String> getTitle()
+        {
+            string queryString = "SELECT * FROM JobTitle";
+            List<String> result = new List<String>();
+
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                OleDbCommand command = new OleDbCommand(queryString, connection);
+                connection.Open();
+                OleDbDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    result.Add(reader.GetString(1));
+                }
+                reader.Close();
+            }
+
+            return result;
+        }
+
+        public static List<String> getSpeciality()
+        {
+            string queryString = "SELECT * FROM Speciality";
+            List<String> result = new List<String>();
+
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                OleDbCommand command = new OleDbCommand(queryString, connection);
+                connection.Open();
+                OleDbDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    result.Add(reader.GetString(1));
+                }
+                reader.Close();
+            }
+
+            return result;
+        }
+            public static List<String> getCourse()
+        {
+            string queryString = "SELECT * FROM Course";
+            List<String> result = new List<String>();
+
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                OleDbCommand command = new OleDbCommand(queryString, connection);
+                connection.Open();
+                OleDbDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    result.Add(reader.GetString(1));
+                }
+                reader.Close();
+            }
+
+            return result;
+        }
+        public static List<String> getGroups()
+        {
+            string queryString = "SELECT * FROM [Group]";
+            List<String> result = new List<String>();
+
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                OleDbCommand command = new OleDbCommand(queryString, connection);
+                connection.Open();
+                OleDbDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    result.Add(reader.GetString(1));
+                }
+                reader.Close();
+            }
+
+            return result;
+        }
+
         public static List<Credential> getCredentials()
         {
             string queryString = "SELECT * FROM Authentication";
@@ -47,7 +130,7 @@ namespace kurrab.Classes
         // получаем список студентов в датасет - это нужно чтобы загрузить датасет в датагрид
         public static DataSet getStudentList()
         {
-            string queryString = "SELECT [ListStudents].surname, [ListStudents].name, [ListStudents].patronymic, [Group].[group] FROM ListStudents " +
+            string queryString = "SELECT [ListStudents].[surname] & ' ' & [ListStudents].[name] & ' ' & [ListStudents].[patronymic] AS [full_name], [Group].[group] FROM ListStudents " +
                 "INNER JOIN [Group] ON [ListStudents].[group]=[Group].[ID] " +
                 "ORDER BY [ListStudents].surname;";
             DataSet ds = new DataSet();
