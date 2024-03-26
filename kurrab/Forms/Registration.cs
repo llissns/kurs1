@@ -21,6 +21,13 @@ namespace kurrab.Forms
 
         private void Registration_Load(object sender, EventArgs e)
         {
+
+            // loading titles
+            // loading speciality
+            foreach (String item in DbConnector.getTitle())
+            {
+                comboBox1.Items.Add(item);
+            }
             // loading groups
             foreach (String item in DbConnector.getGroups())
             {
@@ -37,6 +44,8 @@ namespace kurrab.Forms
             {
                 comboBox4.Items.Add(item);
             }
+            
+
 
 
         }

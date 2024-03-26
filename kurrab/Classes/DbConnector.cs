@@ -24,6 +24,26 @@ namespace kurrab.Classes
         /// Метод выбирает все учетные данные из таблицы (нужно например для сверки с введенными в форме аутентификации)
         /// </summary>
 
+        public static List<String> getTitle()
+        {
+            string queryString = "SELECT * FROM JobTitle";
+            List<String> result = new List<String>();
+
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                OleDbCommand command = new OleDbCommand(queryString, connection);
+                connection.Open();
+                OleDbDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    result.Add(reader.GetString(1));
+                }
+                reader.Close();
+            }
+
+            return result;
+        }
 
         public static List<String> getSpeciality()
         {
