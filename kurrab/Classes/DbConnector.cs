@@ -67,7 +67,8 @@ namespace kurrab.Classes
         // это понадобится в будущем для заполнения БД через формы
         public static OleDbDataAdapter CreateDataAdapter(string selectCommand)
         {
-            using (OleDbConnection connection = new OleDbConnection(connectionString)) { 
+            using (OleDbConnection connection = new OleDbConnection(connectionString)) 
+            { 
                 OleDbDataAdapter adapter = new OleDbDataAdapter(selectCommand, connection);
 
                 adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
@@ -104,6 +105,20 @@ namespace kurrab.Classes
 
                 return adapter;
             }
+        }
+        public static DataSet getListTeachers()
+        {
+            string queryString = "SELECT * FROM ListTeacher";
+            DataSet ds = new DataSet();
+
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                OleDbDataAdapter dataAdapter = new OleDbDataAdapter(queryString, connection);
+                connection.Open();
+                dataAdapter.Fill(ds, "ListTeacher");
+                connection.Close();
+            }
+            return ds;
         }
     }
 }

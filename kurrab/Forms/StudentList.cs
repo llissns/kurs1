@@ -36,5 +36,10 @@ namespace kurrab.Forms
             this.dataGridView1.DataSource = DbConnector.getStudentList();
             this.dataGridView1.DataMember = "ListStudents";
         }
+
+        private void StudentList_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

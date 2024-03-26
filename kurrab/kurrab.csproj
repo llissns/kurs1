@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Teachers.cs" />
     <Compile Include="Classes\MD5Helper.cs" />
     <Compile Include="Classes\Credential.cs" />
     <Compile Include="Classes\DbConnector.cs" />
