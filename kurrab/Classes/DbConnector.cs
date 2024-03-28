@@ -19,6 +19,7 @@ namespace kurrab.Classes
     internal class DbConnector
     {
         private static string connectionString = "Provider=Microsoft.ACE.OLEDB.16.0;Data Source=..\\..\\..\\Database51.accdb";
+        private static object rowsAffected;
 
         /// <summary>
         /// Метод выбирает все учетные данные из таблицы (нужно например для сверки с введенными в форме аутентификации)
@@ -217,7 +218,28 @@ namespace kurrab.Classes
             }
             return ds;
         }
-            
-            
+        public static PutStudent(Student student)
+        {
+            string connectionString = "C:\\gitkurs1";
+            string query = $"INSERT INTO FullName(name, surname, patronymic) VALUES ('{student.name}', '{student.surname}', '{student.patronymic}')";
+
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                OleDbCommand command = new OleDbCommand(query, connection);
+                connection.Open();
+                int rowsAffected = command.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    Console.WriteLine("Студент успешно добавлен.");
+                }
+                else
+                {
+                    Console.WriteLine("Студент не добавлен.");
+                }
+            }
+            return rowsAffected;
+
+        }
+
     }
 }
