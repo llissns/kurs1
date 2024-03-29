@@ -218,7 +218,7 @@ namespace kurrab.Classes
             }
             return ds;
         }
-        public static PutStudent(Student student)
+        public static void PutStudent(Student student)
         {
             string connectionString = "C:\\gitkurs1";
             string query = $"INSERT INTO FullName(name, surname, patronymic) VALUES ('{student.name}', '{student.surname}', '{student.patronymic}')";
@@ -228,16 +228,18 @@ namespace kurrab.Classes
                 OleDbCommand command = new OleDbCommand(query, connection);
                 connection.Open();
                 int rowsAffected = command.ExecuteNonQuery();
-                if (rowsAffected > 0)
+               
+                /*if (rowsAffected > 0)
                 {
                     Console.WriteLine("Студент успешно добавлен.");
                 }
                 else
                 {
                     Console.WriteLine("Студент не добавлен.");
-                }
+                }*/
+
             }
-            return rowsAffected;
+            //return rowsAffected;
 
         }
 

@@ -9,7 +9,7 @@ namespace kurrab.Classes
 {
     internal class Student
     {
-        string name, surname, patronymic, group;
+        public string name, surname, patronymic, group;
         public Student(string _name, string _surname, string _patronymic, string _group)
         {
             name = _name;
