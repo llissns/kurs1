@@ -220,7 +220,7 @@ namespace kurrab.Classes
         }
         public static void PutStudent(Student student)
         {
-            string query = $"INSERT INTO ListStudents(name, surname, patronymic) VALUES ('{student.name}', '{student.surname}', '{student.patronymic}')";
+            string query = $"INSERT INTO ListStudents(name, surname, patronymic, group, phonenumber, email) VALUES ('{student.name}', '{student.surname}', '{student.patronymic}', '{student.group}', '{student.phonenumber}', '{student.email}')";
 
             using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
