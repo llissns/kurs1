@@ -87,11 +87,11 @@ namespace kurrab.Forms
             }
 
 
-            // 2. создание объекта класса Student с этими полями
+            // 2. создание объекта класса Student с этими полями и запись его в БД
 
-            // вызов DbConnector.putStuden(Student myNewStudent)
+            DbConnector.PutStudent(new Student(this.textBox1.Text,this.textBox2.Text, this.textBox3.Text,this.comboBox2.Text));
             // этот метод не готов. в нем надо подробно описать список SQL запросов - в какие таблицы БД какие данные идут
-
+            this.Close();
             // 3. вывод об успешном создании студента?
 
             // 4. обнулить значения текстовых полей в каждом элементе этой формы 

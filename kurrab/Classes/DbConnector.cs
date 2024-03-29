@@ -220,8 +220,7 @@ namespace kurrab.Classes
         }
         public static void PutStudent(Student student)
         {
-            string connectionString = "C:\\gitkurs1";
-            string query = $"INSERT INTO FullName(name, surname, patronymic) VALUES ('{student.name}', '{student.surname}', '{student.patronymic}')";
+            string query = $"INSERT INTO ListStudents(name, surname, patronymic) VALUES ('{student.name}', '{student.surname}', '{student.patronymic}')";
 
             using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
