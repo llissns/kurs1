@@ -61,39 +61,29 @@ namespace kurrab.Forms
             // действия по созданию записи БД о студенте
 
             // 1. верификация полей
-            string emailPattern = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
-            string phonePattern = "^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$";
-            string namePattern = "^[а-яА-Я ]{2,30}$";
+            string emailPattern = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,})+)$";
+            string phonePattern = @"^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$";
+            string namePattern = @"^[а-яА-Я]{2,30}$";
 
-            string email = "dontknow@mail.com";
-            string phoneNumber = "+79435623829";
-            string fullName = "Сергей Сергеевич";
-
-            if(!Regex.IsMatch(email, emailPattern))
+            if(!Regex.IsMatch(this.textBox4.Text, emailPattern))
             {
-                MessageBox.Show("Email не соответствует. Пожалуйста, введите его заново.");
+                MessageBox.Show("Email введен не верно. Пожалуйста, введите его заново.");
             }
-            else
+            if (!Regex.IsMatch(this.textBox5.Text, phonePattern))
             {
-                MessageBox.Show("Email не соответствует паттерну.");
+                MessageBox.Show("Номер телефона введен не верно. Пожалуйста, введите его заново.");
             }
-
-            if (!Regex.IsMatch(phoneNumber,phonePattern))
+            if (!Regex.IsMatch(this.textBox1.Text, namePattern))
             {
-                MessageBox.Show("Номер телефона не соответствует. Пожалуйста, введите его заново.");
+                MessageBox.Show("Имя введено не верно. Пожалуйста, введите его заново.");
             }
-            else
+            if (!Regex.IsMatch(this.textBox2.Text, namePattern))
             {
-                MessageBox.Show("Номер телефона не соответствует паттерну.");
+                MessageBox.Show("Фамилия введена не верно. Пожалуйста, введите его заново.");
             }
-
-            if (!Regex.IsMatch(fullName, namePattern))
+            if (!Regex.IsMatch(this.textBox3.Text, namePattern))
             {
-                MessageBox.Show("Имя и фамилия не соответствуют. Пожалуйста, введите его заново.");
-            }
-            else
-            {
-                MessageBox.Show("Имя и фамилия не соответствует паттерну.");
+                MessageBox.Show("Отчетство введено не верно. Пожалуйста, введите его заново.");
             }
 
 
