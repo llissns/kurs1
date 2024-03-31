@@ -38,11 +38,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.name = new System.Windows.Forms.TextBox();
+            this.surname = new System.Windows.Forms.TextBox();
+            this.patronymic = new System.Windows.Forms.TextBox();
+            this.email = new System.Windows.Forms.TextBox();
+            this.phonenumber = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -141,45 +141,45 @@
             this.label10.TabIndex = 9;
             this.label10.Text = "Специальность";
             // 
-            // textBox1
+            // name
             // 
-            this.textBox1.Location = new System.Drawing.Point(180, 65);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(177, 22);
-            this.textBox1.TabIndex = 10;
+            this.name.Location = new System.Drawing.Point(180, 65);
+            this.name.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(177, 22);
+            this.name.TabIndex = 10;
             // 
-            // textBox2
+            // surname
             // 
-            this.textBox2.Location = new System.Drawing.Point(180, 98);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(177, 22);
-            this.textBox2.TabIndex = 11;
+            this.surname.Location = new System.Drawing.Point(180, 98);
+            this.surname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.surname.Name = "surname";
+            this.surname.Size = new System.Drawing.Size(177, 22);
+            this.surname.TabIndex = 11;
             // 
-            // textBox3
+            // patronymic
             // 
-            this.textBox3.Location = new System.Drawing.Point(180, 134);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(177, 22);
-            this.textBox3.TabIndex = 12;
+            this.patronymic.Location = new System.Drawing.Point(180, 134);
+            this.patronymic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.patronymic.Name = "patronymic";
+            this.patronymic.Size = new System.Drawing.Size(177, 22);
+            this.patronymic.TabIndex = 12;
             // 
-            // textBox4
+            // email
             // 
-            this.textBox4.Location = new System.Drawing.Point(180, 167);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(177, 22);
-            this.textBox4.TabIndex = 13;
+            this.email.Location = new System.Drawing.Point(180, 167);
+            this.email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.email.Name = "email";
+            this.email.Size = new System.Drawing.Size(177, 22);
+            this.email.TabIndex = 13;
             // 
-            // textBox5
+            // phonenumber
             // 
-            this.textBox5.Location = new System.Drawing.Point(180, 199);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(177, 22);
-            this.textBox5.TabIndex = 14;
+            this.phonenumber.Location = new System.Drawing.Point(180, 199);
+            this.phonenumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.phonenumber.Name = "phonenumber";
+            this.phonenumber.Size = new System.Drawing.Size(177, 22);
+            this.phonenumber.TabIndex = 14;
             // 
             // comboBox1
             // 
@@ -250,11 +250,11 @@
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.phonenumber);
+            this.Controls.Add(this.email);
+            this.Controls.Add(this.patronymic);
+            this.Controls.Add(this.surname);
+            this.Controls.Add(this.name);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -286,11 +286,11 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox name;
+        private System.Windows.Forms.TextBox surname;
+        private System.Windows.Forms.TextBox patronymic;
+        private System.Windows.Forms.TextBox email;
+        private System.Windows.Forms.TextBox phonenumber;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox3;

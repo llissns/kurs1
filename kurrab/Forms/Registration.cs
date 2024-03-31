@@ -65,23 +65,23 @@ namespace kurrab.Forms
             string phonePattern = @"^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$";
             string namePattern = @"^[а-яА-Я]{2,30}$";
 
-            if(!Regex.IsMatch(this.textBox4.Text, emailPattern))
+            if(!Regex.IsMatch(this.email.Text, emailPattern))
             {
                 MessageBox.Show("Email введен не верно. Пожалуйста, введите его заново.");
             }
-            if (!Regex.IsMatch(this.textBox5.Text, phonePattern))
+            if (!Regex.IsMatch(this.phonenumber.Text, phonePattern))
             {
                 MessageBox.Show("Номер телефона введен не верно. Пожалуйста, введите его заново.");
             }
-            if (!Regex.IsMatch(this.textBox1.Text, namePattern))
+            if (!Regex.IsMatch(this.name.Text, namePattern))
             {
                 MessageBox.Show("Имя введено не верно. Пожалуйста, введите его заново.");
             }
-            if (!Regex.IsMatch(this.textBox2.Text, namePattern))
+            if (!Regex.IsMatch(this.surname.Text, namePattern))
             {
                 MessageBox.Show("Фамилия введена не верно. Пожалуйста, введите его заново.");
             }
-            if (!Regex.IsMatch(this.textBox3.Text, namePattern))
+            if (!Regex.IsMatch(this.patronymic.Text, namePattern))
             {
                 MessageBox.Show("Отчетство введено не верно. Пожалуйста, введите его заново.");
             }
@@ -89,7 +89,7 @@ namespace kurrab.Forms
 
             // 2. создание объекта класса Student с этими полями и запись его в БД
 
-            DbConnector.PutStudent(new Student(this.textBox1.Text, this.textBox2.Text, this.textBox3.Text, this.textBox4.Text, this.textBox5.Text, this.comboBox2.Text));
+            DbConnector.PutStudent(new Student(this.name.Text, this.surname.Text, this.patronymic.Text, this.comboBox2.Text, this.phonenumber.Text, this.email.Text));
             // этот метод не готов. в нем надо подробно описать список SQL запросов - в какие таблицы БД какие данные идут
             this.Close();
             // 3. вывод об успешном создании студента?
