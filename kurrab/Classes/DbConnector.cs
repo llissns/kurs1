@@ -228,8 +228,7 @@ namespace kurrab.Classes
                 command.Parameters.AddWithValue("@name", student.name);
                 command.Parameters.AddWithValue("@surname", student.surname);
                 command.Parameters.AddWithValue("@patronymic", student.patronymic);
-                command.Parameters.AddWithValue("@phonenumber", student.phonenumber);
-                command.Parameters.AddWithValue("@email", student.email);
+
 
                 // calculating group ID value
                 connection.Open();
@@ -240,7 +239,12 @@ namespace kurrab.Classes
                     command.Parameters.AddWithValue("@group", reader.GetInt32(0));
 
                 }
+
                 reader.Close();
+                
+                command.Parameters.AddWithValue("@phonenumber", student.phonenumber);
+                command.Parameters.AddWithValue("@email", student.email);
+
                 // executing current query
                 command.ExecuteNonQuery();
             }
