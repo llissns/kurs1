@@ -220,27 +220,30 @@ namespace kurrab.Classes
         }
         public static void PutStudent(Student student)
         {
-            string query = $"INSERT INTO ListStudents(name, surname, patronymic, group, phonenumber, email) VALUES ('{student.name}', '{student.surname}', '{student.patronymic}', '{student.group}', '{student.phonenumber}', '{student.email}')";
+            string query = $"INSERT INTO ListStudents([name], [surname], [patronymic], [group], [phonenumber], [email]) VALUES (@name, @surname, @patronymic, @group, @phonenumber,@email)";
 
             using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
                 OleDbCommand command = new OleDbCommand(query, connection);
+                command.Parameters.AddWithValue("@name", student.name);
+                command.Parameters.AddWithValue("@surname", student.surname);
+                command.Parameters.AddWithValue("@patronymic", student.patronymic);
+                command.Parameters.AddWithValue("@phonenumber", student.phonenumber);
+                command.Parameters.AddWithValue("@email", student.email);
+
+                // calculating group ID value
                 connection.Open();
-                int rowsAffected = command.ExecuteNonQuery();
-               
-                /*if (rowsAffected > 0)
+                OleDbDataReader reader = new OleDbCommand($"SELECT id FROM [Group] WHERE [group]='{student.group}'", connection).ExecuteReader();
+                while (reader.Read())       
                 {
-                    Console.WriteLine("Студент успешно добавлен.");
+                    //reading the groupID value from query, setting it as @group parameter value to current SQL command
+                    command.Parameters.AddWithValue("@group", reader.GetInt32(0));
+
                 }
-                else
-                {
-                    Console.WriteLine("Студент не добавлен.");
-                }*/
-
+                reader.Close();
+                // executing current query
+                command.ExecuteNonQuery();
             }
-            //return rowsAffected;
-
         }
-
     }
 }
