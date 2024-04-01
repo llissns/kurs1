@@ -66,7 +66,7 @@ namespace kurrab.Classes
 
             return result;
         }
-            public static List<String> getCourse()
+        public static List<String> getCourse()
         {
             string queryString = "SELECT * FROM Course";
             List<String> result = new List<String>();
@@ -151,8 +151,8 @@ namespace kurrab.Classes
         // это понадобится в будущем для заполнения БД через формы
         public static OleDbDataAdapter CreateDataAdapter(string selectCommand)
         {
-            using (OleDbConnection connection = new OleDbConnection(connectionString)) 
-            { 
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
                 OleDbDataAdapter adapter = new OleDbDataAdapter(selectCommand, connection);
 
                 adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
@@ -233,7 +233,7 @@ namespace kurrab.Classes
                 // calculating group ID value
                 connection.Open();
                 OleDbDataReader reader = new OleDbCommand($"SELECT id FROM [Group] WHERE [group]='{student.group}'", connection).ExecuteReader();
-                while (reader.Read())       
+                while (reader.Read())
                 {
                     //reading the groupID value from query, setting it as @group parameter value to current SQL command
                     command.Parameters.AddWithValue("@group", reader.GetInt32(0));
@@ -241,12 +241,46 @@ namespace kurrab.Classes
                 }
 
                 reader.Close();
-                
+
                 command.Parameters.AddWithValue("@phonenumber", student.phonenumber);
                 command.Parameters.AddWithValue("@email", student.email);
 
                 // executing current query
                 command.ExecuteNonQuery();
+            }
+        }
+        private bool ValidateCurrentPassword(string currentPassword)
+        {
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM Authentication WHERE password = @CurrentPassword";
+
+                using (OleDbCommand command = new OleDbCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@CurrentPassword", currentPassword);
+                    connection.Open();
+                    int count = (int)command.ExecuteScalar();
+
+                    return count > 0;
+                }
+            }
+        }
+        private bool UpdatePasswordInDatabase(string newPassword)
+        {
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                string query = "UPDATE Authentication SET password = @NewPassword WHERE login = @login";
+
+                using (OleDbCommand command = new OleDbCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@NewPassword", newPassword);
+                    command.Parameters.AddWithValue("@login", 1);
+
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    return rowsAffected > 0;
+                }
             }
         }
     }

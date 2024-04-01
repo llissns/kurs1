@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.currentpassword = new System.Windows.Forms.TextBox();
+            this.newpassword = new System.Windows.Forms.TextBox();
+            this.repeatpassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,26 +50,26 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Настройки";
             // 
-            // textBox1
+            // currentpassword
             // 
-            this.textBox1.Location = new System.Drawing.Point(155, 123);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 1;
+            this.currentpassword.Location = new System.Drawing.Point(155, 123);
+            this.currentpassword.Name = "currentpassword";
+            this.currentpassword.Size = new System.Drawing.Size(100, 22);
+            this.currentpassword.TabIndex = 1;
             // 
-            // textBox2
+            // newpassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(155, 160);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 2;
+            this.newpassword.Location = new System.Drawing.Point(155, 160);
+            this.newpassword.Name = "newpassword";
+            this.newpassword.Size = new System.Drawing.Size(100, 22);
+            this.newpassword.TabIndex = 2;
             // 
-            // textBox3
+            // repeatpassword
             // 
-            this.textBox3.Location = new System.Drawing.Point(155, 196);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 3;
+            this.repeatpassword.Location = new System.Drawing.Point(155, 196);
+            this.repeatpassword.Name = "repeatpassword";
+            this.repeatpassword.Size = new System.Drawing.Size(100, 22);
+            this.repeatpassword.TabIndex = 3;
             // 
             // label2
             // 
@@ -115,6 +115,7 @@
             this.button1.TabIndex = 8;
             this.button1.Text = "Сохранить";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label6
             // 
@@ -147,9 +148,9 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.repeatpassword);
+            this.Controls.Add(this.newpassword);
+            this.Controls.Add(this.currentpassword);
             this.Controls.Add(this.label1);
             this.Name = "SettingsScreen";
             this.Text = "экран настроек";
@@ -162,9 +163,9 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox currentpassword;
+        private System.Windows.Forms.TextBox newpassword;
+        private System.Windows.Forms.TextBox repeatpassword;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

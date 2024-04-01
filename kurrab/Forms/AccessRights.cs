@@ -16,5 +16,10 @@ namespace kurrab
         {
             InitializeComponent();
         }
+
+        private void AccessRights_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -50,6 +50,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "AccessRights";
             this.Text = "права доступа";
+            this.Load += new System.EventHandler(this.AccessRights_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
