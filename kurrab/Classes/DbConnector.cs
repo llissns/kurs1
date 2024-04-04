@@ -21,11 +21,16 @@ namespace kurrab.Classes
     internal class DbConnector
     {
         DbProviderFactory factory = new MySqlClientFactory();
-        DbConnection cxn = factory.CreateConnection();
-        cxn.ConnectionString = "server=localhost;port=3306;Database=kurrab;user id=root;password=28082005;SslMode=none;Convert Zero Datetime=True";
-        cxn.Open();
-        private static string connectionString = "Driver=MySQL ODBC 8.3 Unicode Driver;server=localhost;uid=root;pwd=28082005;database=kurrab";
+        DbConnection cxn;
         private static object rowsAffected;
+
+        static string connectionString = "dummy";
+
+        DbConnector()
+        {
+            cxn = factory.CreateConnection();
+            cxn.ConnectionString = "server=localhost;port=3306;Database=kurrab;user id=root;password=28082005;SslMode=none;Convert Zero Datetime=True";
+        }
 
         /// <summary>
         /// Метод выбирает все учетные данные из таблицы (нужно например для сверки с введенными в форме аутентификации)
