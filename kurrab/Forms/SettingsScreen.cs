@@ -1,10 +1,12 @@
-﻿using System;
+﻿using kurrab.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,39 +25,35 @@ namespace kurrab.Forms
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
+        { 
             string currentPassword = currentpassword.Text;
             string newPassword = newpassword.Text;
             string repeatPassword = repeatpassword.Text;
 
-            if(newPassword != repeatPassword)
-            {
-                MessageBox.Show("Повторите снова новый пароль.");
-                return;
-            }
+            string hashedCurrentPassword = MD5Helper.GetMd5Hash(currentPassword);
 
-            if(!ValidateCurrentPassword(currentPassword))
-            {
-                MessageBox.Show("Введен неверно текущий пароль.");
-                return;
-            }
+            string hashedPasswordFromDB = DbConnector.GetUserHash("login");
 
-            if (UpdatePasswordInDatabase(newPassword))
-            {   
-                MessageBox.Show("Пароль успешно изменен.");
+            if (hashedCurrentPassword == hashedPasswordFromDB)
+            {
+                MessageBox.Show("Пароль верный!");
             }
             else
             {
-                MessageBox.Show("Не удалось изменить пароль. Повторите ещё раз.");
+                MessageBox.Show("Неверный пароль!");
+            }
+            if (newPassword == repeatPassword)
+            {
+                MessageBox.Show("Новый пароль совпадает с его повторением!");
+            }
+            else
+            {
+                MessageBox.Show("Новый пароль не совпадает с его повторением!");
             }
         }
-        private bool ValidateCurrentPassword(string currentPassword)
-        {
-            throw new NotImplementedException();
-        }
-        private bool UpdatePasswordInDatabase(string newPassword)
-        {
-            throw new NotImplementedException();
+        private string GetHashedPasswordFromDB()
+        { 
+            return MD5Helper.GetMd5Hash("hash_value");
         }
     }
 }

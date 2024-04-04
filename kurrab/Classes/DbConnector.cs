@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.OleDb;
+using System.Data.Common;
+using MySql.Data.MySqlClient;
 using System.Security.Cryptography;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -18,7 +20,11 @@ namespace kurrab.Classes
     /// </summary>
     internal class DbConnector
     {
-        private static string connectionString = "Provider=Microsoft.ACE.OLEDB.16.0;Data Source=..\\..\\..\\Database51.accdb";
+        DbProviderFactory factory = new MySqlClientFactory();
+        DbConnection cxn = factory.CreateConnection();
+        cxn.ConnectionString = "server=localhost;port=3306;Database=kurrab;user id=root;password=28082005;SslMode=none;Convert Zero Datetime=True";
+        cxn.Open();
+        private static string connectionString = "Driver=MySQL ODBC 8.3 Unicode Driver;server=localhost;uid=root;pwd=28082005;database=kurrab";
         private static object rowsAffected;
 
         /// <summary>
@@ -282,6 +288,27 @@ namespace kurrab.Classes
                     return rowsAffected > 0;
                 }
             }
+        }
+        public static string GetUserHash(string username)
+        { 
+            string query = $"SELECT password FROM [Authentication] WHERE [login] = @login ";
+            string userHash = "";
+
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                OleDbCommand command = new OleDbCommand(query, connection);
+                command.Parameters.AddWithValue("@login", username);
+                connection.Open();
+
+                OleDbDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    userHash = reader["password"].ToString();
+                }
+                reader.Close();
+            }
+            return userHash;
         }
     }
 }
