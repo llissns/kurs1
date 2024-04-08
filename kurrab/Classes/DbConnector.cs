@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-using System.Data.OleDb;
 using System.Data.Common;
 using MySql.Data.MySqlClient;
 using System.Security.Cryptography;
@@ -38,164 +37,156 @@ namespace kurrab.Classes
 
         public static List<String> getTitle()
         {
-            string queryString = "SELECT * FROM JobTitle";
-            List<String> result = new List<String>();
-
-            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                OleDbCommand command = new OleDbCommand(queryString, connection);
-                connection.Open();
-                OleDbDataReader reader = command.ExecuteReader();
+                conn.Open();
+                string sql = "SELECT * FROM jobtitle";
+                List<String> result = new List<String>();
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                MySqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
                 {
                     result.Add(reader.GetString(1));
                 }
                 reader.Close();
+                return result;
             }
-
-            return result;
         }
 
         public static List<String> getSpeciality()
         {
-            string queryString = "SELECT * FROM Speciality";
-            List<String> result = new List<String>();
-
-            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                OleDbCommand command = new OleDbCommand(queryString, connection);
-                connection.Open();
-                OleDbDataReader reader = command.ExecuteReader();
+                conn.Open();
+                string sql = "SELECT * FROM speciality";
+                List<String> result = new List<String>();
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                MySqlDataReader reader = command.ExecuteReader();
+
 
                 while (reader.Read())
                 {
                     result.Add(reader.GetString(1));
                 }
                 reader.Close();
+                return result;
             }
-
-            return result;
         }
         public static List<String> getCourse()
         {
-            string queryString = "SELECT * FROM Course";
-            List<String> result = new List<String>();
-
-            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                OleDbCommand command = new OleDbCommand(queryString, connection);
-                connection.Open();
-                OleDbDataReader reader = command.ExecuteReader();
+                conn.Open();
+                string sql = "SELECT * FROM course";
+                List<String> result = new List<String>();
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                MySqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
                 {
                     result.Add(reader.GetString(1));
                 }
                 reader.Close();
+                return result;
             }
-
-            return result;
         }
         public static List<String> getGroups()
         {
-            string queryString = "SELECT * FROM [Group]";
-            List<String> result = new List<String>();
-
-            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                OleDbCommand command = new OleDbCommand(queryString, connection);
-                connection.Open();
-                OleDbDataReader reader = command.ExecuteReader();
+                conn.Open();
+                string sql = "SELECT * FROM [group]";
+                List<String> result = new List<String>();
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                MySqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
                 {
                     result.Add(reader.GetString(1));
                 }
                 reader.Close();
+                return result;
             }
-
-            return result;
         }
 
         public static List<Credential> getCredentials()
         {
-            string queryString = "SELECT * FROM Authentication";
-            List<Credential> result = new List<Credential>();
 
-            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                OleDbCommand command = new OleDbCommand(queryString, connection);
-                connection.Open();
-                OleDbDataReader reader = command.ExecuteReader();
+                conn.Open();
+                string sql = "SELECT * FROM authentication";
+                List<Credential> result = new List<Credential>();
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                MySqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
                 {
                     result.Add(new Credential(reader.GetString(1), reader.GetString(2)));
                 }
                 reader.Close();
+                return result;
             }
-
-            return result;
         }
+    
 
         // получаем список студентов в датасет - это нужно чтобы загрузить датасет в датагрид
         public static DataSet getStudentList()
         {
-            string queryString = "SELECT [ListStudents].[surname] & ' ' & [ListStudents].[name] & ' ' & [ListStudents].[patronymic] AS [full_name], [Group].[group] FROM ListStudents " +
-                "INNER JOIN [Group] ON [ListStudents].[group]=[Group].[ID] " +
-                "ORDER BY [ListStudents].surname;";
-            DataSet ds = new DataSet();
-
-            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                OleDbDataAdapter dataadapter = new OleDbDataAdapter(queryString, connection);
-                connection.Open();
-                dataadapter.Fill(ds, "ListStudents");
-                connection.Close();
-            }
+                conn.Open();
 
-            // returning dataset
-            return ds;
+                string sql = "SELECT [liststudents].[surname] & ' ' & [liststudents].[name] & ' ' & [liststudents].[patronymic] AS [full_name], [group].[group] FROM liststudents " +
+                             "INNER JOIN [group] ON [liststudents].[group]=[group].[ID] " +
+                             "ORDER BY [liststudents].surname;";
+                DataSet ds = new DataSet();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                adapter.Fill(ds, "liststudents");
+
+                return ds;
+            }
         }
 
         // это понадобится в будущем для заполнения БД через формы
-        public static OleDbDataAdapter CreateDataAdapter(string selectCommand)
+        public static MySqlDataAdapter CreateDataAdapter(string selectCommand)
         {
-            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                OleDbDataAdapter adapter = new OleDbDataAdapter(selectCommand, connection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(selectCommand, conn);
 
                 adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
 
                 // Create the Insert, Update and Delete commands.
-                adapter.InsertCommand = new OleDbCommand(
+                adapter.InsertCommand = new MySqlCommand(
                     "INSERT INTO Customers (CustomerID, CompanyName) " +
                     "VALUES (?, ?)");
 
-                adapter.UpdateCommand = new OleDbCommand(
+                adapter.UpdateCommand = new MySqlCommand(
                     "UPDATE Customers SET CustomerID = ?, CompanyName = ? " +
                     "WHERE CustomerID = ?");
 
-                adapter.DeleteCommand = new OleDbCommand(
+                adapter.DeleteCommand = new MySqlCommand(
                     "DELETE FROM Customers WHERE CustomerID = ?");
 
                 // Create the parameters.
                 adapter.InsertCommand.Parameters.Add("@CustomerID",
-                    OleDbType.Char, 5, "CustomerID");
+                    MySqlDbType.VarChar, 5, "CustomerID");
                 adapter.InsertCommand.Parameters.Add("@CompanyName",
-                    OleDbType.VarChar, 40, "CompanyName");
+                    MySqlDbType.VarChar, 40, "CompanyName");
 
                 adapter.UpdateCommand.Parameters.Add("@CustomerID",
-                    OleDbType.Char, 5, "CustomerID");
+                    MySqlDbType.VarChar, 5, "CustomerID");
                 adapter.UpdateCommand.Parameters.Add("@CompanyName",
-                    OleDbType.VarChar, 40, "CompanyName");
+                    MySqlDbType.VarChar, 40, "CompanyName");
                 adapter.UpdateCommand.Parameters.Add("@oldCustomerID",
-                    OleDbType.Char, 5, "CustomerID").SourceVersion =
+                    MySqlDbType.VarChar, 5, "CustomerID").SourceVersion =
                     DataRowVersion.Original;
 
                 adapter.DeleteCommand.Parameters.Add("@CustomerID",
-                    OleDbType.Char, 5, "CustomerID").SourceVersion =
+                    MySqlDbType.VarChar, 5, "CustomerID").SourceVersion =
                     DataRowVersion.Original;
 
                 return adapter;
@@ -203,47 +194,47 @@ namespace kurrab.Classes
         }
         public static DataSet getListTeachers()
         {
-            string queryString = "SELECT * FROM ListTeacher";
-            DataSet ds = new DataSet();
-
-            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                OleDbDataAdapter dataAdapter = new OleDbDataAdapter(queryString, connection);
-                connection.Open();
-                dataAdapter.Fill(ds, "ListTeacher");
-                connection.Close();
+                conn.Open();
+
+                string sql = "SELECT * FROM listteacher";
+                DataSet ds = new DataSet();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                adapter.Fill(ds, "listteacher");
+                return ds;
             }
-            return ds;
         }
         public static DataSet getAccessRights()
         {
-            string queryString = "SELECT * FROM AccessRights";
-            DataSet ds = new DataSet();
-
-            using (OleDbConnection connection = new OleDbConnection(connectionString))
+             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                OleDbDataAdapter dataAdapter = new OleDbDataAdapter(queryString, connection);
-                connection.Open();
-                dataAdapter.Fill(ds, "AccessRights");
-                connection.Close();
+                conn.Open();
+
+                string sql = "SELECT * FROM accessrights";
+                DataSet ds = new DataSet();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                adapter.Fill(ds, "accesrights");
+                return ds;
             }
-            return ds;
         }
         public static void PutStudent(Student student)
         {
-            string query = $"INSERT INTO ListStudents([name], [surname], [patronymic], [group], [phonenumber], [email]) VALUES (@name, @surname, @patronymic, @group, @phonenumber,@email)";
+            string sql = $"INSERT INTO liststudents([name], [surname], [patronymic], [group], [phonenumber], [email]) VALUES (@name, @surname, @patronymic, @group, @phonenumber,@email)";
 
-            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                OleDbCommand command = new OleDbCommand(query, connection);
+                MySqlCommand command = new MySqlCommand(sql, conn);
                 command.Parameters.AddWithValue("@name", student.name);
                 command.Parameters.AddWithValue("@surname", student.surname);
                 command.Parameters.AddWithValue("@patronymic", student.patronymic);
 
 
                 // calculating group ID value
-                connection.Open();
-                OleDbDataReader reader = new OleDbCommand($"SELECT id FROM [Group] WHERE [group]='{student.group}'", connection).ExecuteReader();
+                conn.Open();
+                MySqlDataReader reader = new MySqlCommand($"SELECT id FROM [group] WHERE [group]='{student.group}'", conn).ExecuteReader();
                 while (reader.Read())
                 {
                     //reading the groupID value from query, setting it as @group parameter value to current SQL command
@@ -262,14 +253,14 @@ namespace kurrab.Classes
         }
         private bool ValidateCurrentPassword(string currentPassword)
         {
-            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                string query = "SELECT COUNT(*) FROM Authentication WHERE password = @CurrentPassword";
+                string sql = "SELECT COUNT(*) FROM authentication WHERE password = @CurrentPassword";
 
-                using (OleDbCommand command = new OleDbCommand(query, connection))
+                using (MySqlCommand command = new MySqlCommand(sql, conn))
                 {
                     command.Parameters.AddWithValue("@CurrentPassword", currentPassword);
-                    connection.Open();
+                    conn.Open();
                     int count = (int)command.ExecuteScalar();
 
                     return count > 0;
@@ -278,16 +269,16 @@ namespace kurrab.Classes
         }
         private bool UpdatePasswordInDatabase(string newPassword)
         {
-            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                string query = "UPDATE Authentication SET password = @NewPassword WHERE login = @login";
+                string sql = "UPDATE authentication SET password = @NewPassword WHERE login = @login";
 
-                using (OleDbCommand command = new OleDbCommand(query, connection))
+                using (MySqlCommand command = new MySqlCommand(sql, conn))
                 {
                     command.Parameters.AddWithValue("@NewPassword", newPassword);
                     command.Parameters.AddWithValue("@login", 1);
 
-                    connection.Open();
+                    conn.Open();
                     int rowsAffected = command.ExecuteNonQuery();
 
                     return rowsAffected > 0;
@@ -296,16 +287,16 @@ namespace kurrab.Classes
         }
         public static string GetUserHash(string username)
         { 
-            string query = $"SELECT password FROM [Authentication] WHERE [login] = @login ";
+            string sql = $"SELECT password FROM [authentication] WHERE [login] = @login ";
             string userHash = "";
 
-            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                OleDbCommand command = new OleDbCommand(query, connection);
+                MySqlCommand command = new MySqlCommand(sql, conn);
                 command.Parameters.AddWithValue("@login", username);
-                connection.Open();
+                conn.Open();
 
-                OleDbDataReader reader = command.ExecuteReader();
+                MySqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
                 {
