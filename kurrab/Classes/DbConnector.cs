@@ -86,7 +86,7 @@ namespace kurrab.Classes
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                string sql = "SELECT * FROM [group]";
+                string sql = "SELECT * FROM `group`";
                 List<String> result = new List<String>();
                 MySqlCommand command = new MySqlCommand(sql, conn);
                 MySqlDataReader reader = command.ExecuteReader();
@@ -128,9 +128,7 @@ namespace kurrab.Classes
             {
                 conn.Open();
 
-                string sql = "SELECT [liststudents].[surname] & ' ' & [liststudents].[name] & ' ' & [liststudents].[patronymic] AS [full_name], [group].[group] FROM liststudents " +
-                             "INNER JOIN [group] ON [liststudents].[group]=[group].[ID] " +
-                             "ORDER BY [liststudents].surname;";
+                string sql = "SELECT ID, surname, name, patronymic, `group`, phonenumber, email\r\nFROM kurrab.liststudents;";
                 DataSet ds = new DataSet();
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
@@ -212,7 +210,7 @@ namespace kurrab.Classes
         }
         public static void PutStudent(Student student)
         {
-            string sql = $"INSERT INTO liststudents([name], [surname], [patronymic], [group], [phonenumber], [email]) VALUES (@name, @surname, @patronymic, @group, @phonenumber,@email)";
+            string sql = $"INSERT INTO liststudents(`name`, `surname`, `patronymic`, `group`, `phonenumber`, `email`) VALUES (@name, @surname, @patronymic, @group, @phonenumber,@email)";
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -224,7 +222,7 @@ namespace kurrab.Classes
 
                 // calculating group ID value
                 conn.Open();
-                MySqlDataReader reader = new MySqlCommand($"SELECT id FROM [group] WHERE [group]='{student.group}'", conn).ExecuteReader();
+                MySqlDataReader reader = new MySqlCommand($"SELECT id FROM `group` WHERE `group`='{student.group}'", conn).ExecuteReader();
                 while (reader.Read())
                 {
                     //reading the groupID value from query, setting it as @group parameter value to current SQL command
