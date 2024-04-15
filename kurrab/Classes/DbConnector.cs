@@ -81,23 +81,20 @@ namespace kurrab.Classes
                 return result;
             }
         }
-        public static List<String> getGroups()
+        public static DataSet getGroups()
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
                 string sql = "SELECT * FROM `groups`";
-                List<String> result = new List<String>();
-                MySqlCommand command = new MySqlCommand(sql, conn);
-                MySqlDataReader reader = command.ExecuteReader();
+                DataSet ds = new DataSet();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                adapter.Fill(ds, "groups");
 
-                while (reader.Read())
-                {
-                    result.Add(reader.GetString(1));
-                }
-                reader.Close();
-                return result;
+                return ds;
             }
+           
         }
 
         public static List<Credential> getCredentials()

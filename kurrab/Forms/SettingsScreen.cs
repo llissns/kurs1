@@ -29,10 +29,12 @@ namespace kurrab.Forms
                 comboBox1.Items.Add(item);
             }
             // loading groups
-            foreach (String item in DbConnector.getGroups())
-            {
-                comboBox2.Items.Add(item);
-            }
+            comboBox2.DataBindings.Clear();
+            comboBox2.DataSource = DbConnector.getGroups().Tables[0];
+            comboBox2.DisplayMember = "group";
+            comboBox2.ValueMember = "id";
+
+            
 
             // loading courses
             foreach (String item in DbConnector.getCourse())
@@ -111,7 +113,7 @@ namespace kurrab.Forms
 
             // 2. создание объекта класса Student с этими полями и запись его в БД
 
-            DbConnector.PutStudent(new Student(this.name.Text, this.surname.Text, this.patronymic.Text, this.comboBox2.Text, this.phonenumber.Text, this.email.Text));
+            DbConnector.PutStudent(new Student(this.name.Text, this.surname.Text, this.patronymic.Text, this.comboBox2.SelectedValue.ToString(), this.phonenumber.Text, this.email.Text));
             // этот метод не готов. в нем надо подробно описать список SQL запросов - в какие таблицы БД какие данные идут
             this.Close();
             // 3. вывод об успешном создании студента?
