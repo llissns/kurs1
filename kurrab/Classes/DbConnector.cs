@@ -1,11 +1,11 @@
 ﻿using System;
+using MySqlConnector;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.Common;
-using MySql.Data.MySqlClient;
 using System.Security.Cryptography;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -19,7 +19,7 @@ namespace kurrab.Classes
     /// </summary>
     internal class DbConnector
     {
-        static string connectionString = "server=localhost;port=3306;Database=kurrab;user id=root;password=28082005;SslMode=none;Convert Zero Datetime=True";
+        static string connectionString = "server=172.20.7.45;port=3306;username=st3996_24;password=pwd3996_24;database=db_3996_24_idz";
 
         /// <summary>
         /// Метод выбирает все учетные данные из таблицы (нужно например для сверки с введенными в форме аутентификации)
@@ -86,7 +86,7 @@ namespace kurrab.Classes
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                string sql = "SELECT * FROM `group`";
+                string sql = "SELECT * FROM `groups`";
                 List<String> result = new List<String>();
                 MySqlCommand command = new MySqlCommand(sql, conn);
                 MySqlDataReader reader = command.ExecuteReader();
@@ -128,7 +128,7 @@ namespace kurrab.Classes
             {
                 conn.Open();
 
-                string sql = "SELECT ID, surname, name, patronymic, `group`, phonenumber, email\r\nFROM kurrab.liststudents;";
+                string sql = "SELECT * FROM student_info";
                 DataSet ds = new DataSet();
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
@@ -161,20 +161,20 @@ namespace kurrab.Classes
 
                 // Create the parameters.
                 adapter.InsertCommand.Parameters.Add("@CustomerID",
-                    MySqlDbType.VarChar, 5, "CustomerID");
+                    MySqlDbType.VarChar, 5).SourceColumn = "CustomerID";
                 adapter.InsertCommand.Parameters.Add("@CompanyName",
-                    MySqlDbType.VarChar, 40, "CompanyName");
+                    MySqlDbType.VarChar, 40).SourceColumn = "CompanyName";
 
                 adapter.UpdateCommand.Parameters.Add("@CustomerID",
-                    MySqlDbType.VarChar, 5, "CustomerID");
+                    MySqlDbType.VarChar, 5).SourceColumn = "CustomerID";
                 adapter.UpdateCommand.Parameters.Add("@CompanyName",
-                    MySqlDbType.VarChar, 40, "CompanyName");
+                    MySqlDbType.VarChar, 40).SourceColumn = "CompanyName"; ;
                 adapter.UpdateCommand.Parameters.Add("@oldCustomerID",
-                    MySqlDbType.VarChar, 5, "CustomerID").SourceVersion =
+                    MySqlDbType.VarChar, 5).SourceVersion =
                     DataRowVersion.Original;
 
                 adapter.DeleteCommand.Parameters.Add("@CustomerID",
-                    MySqlDbType.VarChar, 5, "CustomerID").SourceVersion =
+                    MySqlDbType.VarChar, 5).SourceVersion =
                     DataRowVersion.Original;
 
                 return adapter;
@@ -210,7 +210,7 @@ namespace kurrab.Classes
         }
         public static void PutStudent(Student student)
         {
-            string sql = $"INSERT INTO liststudents(`name`, `surname`, `patronymic`, `group`, `phonenumber`, `email`) VALUES (@name, @surname, @patronymic, @group, @phonenumber,@email)";
+            string sql = $"INSERT INTO liststudents(`name`, `surname`, `patronymic`, `groupname`, `phonenumber`, `email`) VALUES (@name, @surname, @patronymic, @groupname, @phonenumber, @email)";
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -222,11 +222,11 @@ namespace kurrab.Classes
 
                 // calculating group ID value
                 conn.Open();
-                MySqlDataReader reader = new MySqlCommand($"SELECT id FROM `group` WHERE `group`='{student.group}'", conn).ExecuteReader();
+                MySqlDataReader reader = new MySqlCommand($"SELECT id FROM `groups` WHERE `group`='{student.group}'", conn).ExecuteReader();
                 while (reader.Read())
                 {
                     //reading the groupID value from query, setting it as @group parameter value to current SQL command
-                    command.Parameters.AddWithValue("@group", reader.GetInt32(0));
+                    command.Parameters.AddWithValue("@groupname", reader.GetInt32(0));
 
                 }
 

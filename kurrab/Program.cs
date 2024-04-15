@@ -15,6 +15,8 @@ namespace kurrab
     /// </summary>
     internal static class Program
     {
+        public static bool isUserAuthenticated=true;
+        public static string userName = "";
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
@@ -25,9 +27,20 @@ namespace kurrab
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            List<Credential> authdata = DbConnector.getCredentials();
+
             // передаем список учетных данных в форму аутентификации для проверки введенного логина и пароля
             // при этом логика работы аутентификации заключена внутри формы
-            Application.Run(new MainScreen());
+            Application.Run(new Authentication(authdata));
+
+            if (!isUserAuthenticated)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                Application.Run(new MainScreen());
+            }
 
             // если пользователь закрыл форму нужно проверить флаг аутентификации isUserAuthenticated
             // если аутентификация не пройдена + форма аутентификации закрыта - завершить программу
