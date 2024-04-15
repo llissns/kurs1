@@ -15,7 +15,7 @@ namespace kurrab
     /// </summary>
     internal static class Program
     {
-        public static bool isUserAuthenticated=true;
+        public static bool isUserAuthenticated=false;
         public static string userName = "";
         /// <summary>
         /// Главная точка входа для приложения.

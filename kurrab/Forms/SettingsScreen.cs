@@ -90,30 +90,37 @@ namespace kurrab.Forms
             if (!Regex.IsMatch(this.email.Text, emailPattern))
             {
                 MessageBox.Show("Email введен не верно. Пожалуйста, введите его заново.");
+                this.email.Text = "";
             }
+
             if (!Regex.IsMatch(this.phonenumber.Text, phonePattern))
             {
                 MessageBox.Show("Номер телефона введен не верно. Пожалуйста, введите его заново.");
+                this.phonenumber.Text = "";
             }
+ 
             if (!Regex.IsMatch(this.name.Text, namePattern))
             {
                 MessageBox.Show("Имя введено не верно. Пожалуйста, введите его заново.");
+                this.name.Text = "";
             }
+
             if (!Regex.IsMatch(this.surname.Text, namePattern))
             {
                 MessageBox.Show("Фамилия введена не верно. Пожалуйста, введите его заново.");
+                this.surname.Text = "";
             }
+
             if (!Regex.IsMatch(this.patronymic.Text, namePattern))
             {
                 MessageBox.Show("Отчетство введено не верно. Пожалуйста, введите его заново.");
+                this.patronymic.Text = "";
             }
-
-
+            
             // 2. создание объекта класса Student с этими полями и запись его в БД
 
             DbConnector.PutStudent(new Student(this.name.Text, this.surname.Text, this.patronymic.Text, this.comboBox2.Text, this.phonenumber.Text, this.email.Text));
             // этот метод не готов. в нем надо подробно описать список SQL запросов - в какие таблицы БД какие данные идут
-            this.Close();
             // 3. вывод об успешном создании студента?
 
             // 4. обнулить значения текстовых полей в каждом элементе этой формы 

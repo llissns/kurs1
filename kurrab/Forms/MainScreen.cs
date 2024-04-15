@@ -14,8 +14,6 @@ namespace kurrab.Forms
 {
     public partial class MainScreen : Form
     {
-        public static bool isUserAuthenticated = false;    // shows if user already authenticated or not
-        public static string userName = "";       // saves username for later purposes
 
         // child forms declaration
         Form settingsForm, authenticationForm, attendancereportForm, studentlistForm, addingandremovingstudentsForm, listteachersForm, Registration;

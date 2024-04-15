@@ -37,8 +37,8 @@ namespace kurrab.Forms
             }
             else
             {
-                MainScreen.isUserAuthenticated = true; // ставим флаг - аутентификация пройдена
-                MainScreen.userName = login.Text;      // сохраняем имя пользователя
+                Program.isUserAuthenticated = true; // ставим флаг - аутентификация пройдена
+                Program.userName = login.Text;      // сохраняем имя пользователя
                 this.Close();   // закрываем эту форму принудительно
             }
         }
