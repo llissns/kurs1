@@ -207,7 +207,7 @@ namespace kurrab.Classes
         }
         public static void PutStudent(Student student)
         {
-            string sql = $"INSERT INTO liststudents(`name`, `surname`, `patronymic`, `groupname`, `phonenumber`, `email`) VALUES (@name, @surname, @patronymic, @groupname, @phonenumber, @email)";
+            string sql = $"INSERT INTO liststudents(`name`, `surname`, `patronymic`, `groupname`, `phonenumber`, `email`) VALUES (@name, @surname, @patronymic, @groupid, @phonenumber, @email)";
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -215,22 +215,12 @@ namespace kurrab.Classes
                 command.Parameters.AddWithValue("@name", student.name);
                 command.Parameters.AddWithValue("@surname", student.surname);
                 command.Parameters.AddWithValue("@patronymic", student.patronymic);
-
+                command.Parameters.AddWithValue("@groupid", student.group);
+                command.Parameters.AddWithValue("@phonenumber", student.phonenumber);
+                command.Parameters.AddWithValue("@email", student.email);
 
                 // calculating group ID value
                 conn.Open();
-                MySqlDataReader reader = new MySqlCommand($"SELECT id FROM `groups` WHERE `group`='{student.group}'", conn).ExecuteReader();
-                while (reader.Read())
-                {
-                    //reading the groupID value from query, setting it as @group parameter value to current SQL command
-                    command.Parameters.AddWithValue("@groupname", reader.GetInt32(0));
-
-                }
-
-                reader.Close();
-
-                command.Parameters.AddWithValue("@phonenumber", student.phonenumber);
-                command.Parameters.AddWithValue("@email", student.email);
 
                 // executing current query
                 command.ExecuteNonQuery();
