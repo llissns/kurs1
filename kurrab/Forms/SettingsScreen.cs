@@ -23,29 +23,28 @@ namespace kurrab.Forms
         private void SettingsScreen_Load(object sender, EventArgs e)
         {
             // loading titles
+            jobtitles.DataBindings.Clear();
+            jobtitles.DataSource = DbConnector.getTitle().Tables[0];
+            jobtitles.DisplayMember = "jobtitle";
+            jobtitles.ValueMember = "ID";
+
             // loading speciality
-            foreach (String item in DbConnector.getTitle())
-            {
-                comboBox1.Items.Add(item);
-            }
+            speciality.DataBindings.Clear();
+            speciality.DataSource = DbConnector.getSpeciality().Tables[0];
+            speciality.DisplayMember = "speciality";
+            speciality.ValueMember = "ID";
+
             // loading groups
-            comboBox2.DataBindings.Clear();
-            comboBox2.DataSource = DbConnector.getGroups().Tables[0];
-            comboBox2.DisplayMember = "group";
-            comboBox2.ValueMember = "id";
-
+            group.DataBindings.Clear();
+            group.DataSource = DbConnector.getGroups().Tables[0];
+            group.DisplayMember = "group";
+            group.ValueMember = "id";
             
-
             // loading courses
-            foreach (String item in DbConnector.getCourse())
-            {
-                comboBox3.Items.Add(item);
-            }
-            // loading speciality
-            foreach (String item in DbConnector.getSpeciality())
-            {
-                comboBox4.Items.Add(item);
-            }
+            course.DataBindings.Clear();
+            course.DataSource = DbConnector.getCourse().Tables[0];
+            course.DisplayMember = "course";
+            course.ValueMember = "ID";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -121,8 +120,7 @@ namespace kurrab.Forms
             
             // 2. создание объекта класса Student с этими полями и запись его в БД
 
-            DbConnector.PutStudent(new Student(this.name.Text, this.surname.Text, this.patronymic.Text, this.comboBox2.SelectedValue.ToString(), this.phonenumber.Text, this.email.Text));
-            // этот метод не готов. в нем надо подробно описать список SQL запросов - в какие таблицы БД какие данные идут
+            DbConnector.PutStudent(new Student(this.name.Text, this.surname.Text, this.patronymic.Text, this.group.SelectedValue.ToString(), this.phonenumber.Text, this.email.Text));            // этот метод не готов. в нем надо подробно описать список SQL запросов - в какие таблицы БД какие данные идут
             // 3. вывод об успешном создании студента?
 
             // 4. обнулить значения текстовых полей в каждом элементе этой формы 

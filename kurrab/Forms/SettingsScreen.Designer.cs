@@ -53,10 +53,10 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.jobtitles = new System.Windows.Forms.ComboBox();
+            this.group = new System.Windows.Forms.ComboBox();
+            this.course = new System.Windows.Forms.ComboBox();
+            this.speciality = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
@@ -280,37 +280,37 @@
             this.label15.TabIndex = 24;
             this.label15.Text = "Специальность";
             // 
-            // comboBox1
+            // jobtitles
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(155, 262);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 25;
+            this.jobtitles.FormattingEnabled = true;
+            this.jobtitles.Location = new System.Drawing.Point(155, 262);
+            this.jobtitles.Name = "jobtitles";
+            this.jobtitles.Size = new System.Drawing.Size(121, 24);
+            this.jobtitles.TabIndex = 25;
             // 
-            // comboBox2
+            // group
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(155, 298);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 26;
+            this.group.FormattingEnabled = true;
+            this.group.Location = new System.Drawing.Point(155, 298);
+            this.group.Name = "group";
+            this.group.Size = new System.Drawing.Size(121, 24);
+            this.group.TabIndex = 26;
             // 
-            // comboBox3
+            // course
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(155, 332);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 24);
-            this.comboBox3.TabIndex = 27;
+            this.course.FormattingEnabled = true;
+            this.course.Location = new System.Drawing.Point(155, 332);
+            this.course.Name = "course";
+            this.course.Size = new System.Drawing.Size(121, 24);
+            this.course.TabIndex = 27;
             // 
-            // comboBox4
+            // speciality
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(155, 365);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 24);
-            this.comboBox4.TabIndex = 28;
+            this.speciality.FormattingEnabled = true;
+            this.speciality.Location = new System.Drawing.Point(155, 365);
+            this.speciality.Name = "speciality";
+            this.speciality.Size = new System.Drawing.Size(121, 24);
+            this.speciality.TabIndex = 28;
             // 
             // label16
             // 
@@ -369,10 +369,10 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.speciality);
+            this.Controls.Add(this.course);
+            this.Controls.Add(this.group);
+            this.Controls.Add(this.jobtitles);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
@@ -434,10 +434,10 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox jobtitles;
+        private System.Windows.Forms.ComboBox group;
+        private System.Windows.Forms.ComboBox course;
+        private System.Windows.Forms.ComboBox speciality;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button3;

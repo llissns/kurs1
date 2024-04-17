@@ -25,60 +25,47 @@ namespace kurrab.Classes
         /// Метод выбирает все учетные данные из таблицы (нужно например для сверки с введенными в форме аутентификации)
         /// </summary>
 
-        public static List<String> getTitle()
+        public static DataSet getTitle()
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
                 string sql = "SELECT * FROM jobtitle";
-                List<String> result = new List<String>();
-                MySqlCommand command = new MySqlCommand(sql, conn);
-                MySqlDataReader reader = command.ExecuteReader();
+                DataSet ds = new DataSet();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                adapter.Fill(ds, "jobtitle");
 
-                while (reader.Read())
-                {
-                    result.Add(reader.GetString(1));
-                }
-                reader.Close();
-                return result;
+                return ds;
             }
         }
 
-        public static List<String> getSpeciality()
+        public static DataSet getSpeciality()
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
                 string sql = "SELECT * FROM speciality";
-                List<String> result = new List<String>();
-                MySqlCommand command = new MySqlCommand(sql, conn);
-                MySqlDataReader reader = command.ExecuteReader();
+                DataSet ds = new DataSet();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                adapter.Fill(ds, "speciality");
 
-
-                while (reader.Read())
-                {
-                    result.Add(reader.GetString(1));
-                }
-                reader.Close();
-                return result;
+                return ds;
             }
         }
-        public static List<String> getCourse()
+        public static DataSet getCourse()
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
                 string sql = "SELECT * FROM course";
-                List<String> result = new List<String>();
-                MySqlCommand command = new MySqlCommand(sql, conn);
-                MySqlDataReader reader = command.ExecuteReader();
+                DataSet ds = new DataSet();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                adapter.Fill(ds, "course");
 
-                while (reader.Read())
-                {
-                    result.Add(reader.GetString(1));
-                }
-                reader.Close();
-                return result;
+                return ds;
             }
         }
         public static DataSet getGroups()
