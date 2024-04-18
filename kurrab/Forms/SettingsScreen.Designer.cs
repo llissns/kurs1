@@ -287,6 +287,7 @@
             this.jobtitles.Name = "jobtitles";
             this.jobtitles.Size = new System.Drawing.Size(121, 24);
             this.jobtitles.TabIndex = 25;
+            this.jobtitles.SelectedIndexChanged += new System.EventHandler(this.jobtitles_SelectedIndexChanged);
             // 
             // group
             // 

@@ -16,7 +16,7 @@ namespace kurrab.Forms
     {
 
         // child forms declaration
-        Form settingsForm, authenticationForm, attendancereportForm, studentlistForm, addingandremovingstudentsForm, listteachersForm, Registration;
+        Form settingsForm, authenticationForm, attendancereportForm, studentlistForm,listteachersForm, Registration;
 
         public MainScreen()
         {
@@ -48,12 +48,6 @@ namespace kurrab.Forms
         {
             Registration = new Registration();
             Registration.ShowDialog();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            addingandremovingstudentsForm = new AddingAndRemovingStudents();
-            addingandremovingstudentsForm.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)

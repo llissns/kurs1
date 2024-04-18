@@ -114,11 +114,12 @@
     <Compile Include="Classes\Credential.cs" />
     <Compile Include="Classes\DbConnector.cs" />
     <Compile Include="Classes\Student.cs" />
-    <Compile Include="Forms\AccessRights.cs">
+    <Compile Include="Forms\AbsenceRecord.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AccessRights.Designer.cs">
-      <DependentUpon>AccessRights.cs</DependentUpon>
+    <Compile Include="Forms\.Designer.cs">
+      <DependentUpon>AbsenceRecord.cs</DependentUpon>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ListTeachers.cs">
       <SubType>Form</SubType>
@@ -144,12 +145,6 @@
     <Compile Include="Forms\MainScreen.Designer.cs">
       <DependentUpon>MainScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddingAndRemovingStudents.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AddingAndRemovingStudents.Designer.cs">
-      <DependentUpon>AddingAndRemovingStudents.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\StudentList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,8 +165,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\AccessRights.resx">
-      <DependentUpon>AccessRights.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AbsenceRecord.resx">
+      <DependentUpon>AbsenceRecord.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ListTeachers.resx">
       <DependentUpon>ListTeachers.cs</DependentUpon>
@@ -181,9 +176,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainScreen.resx">
       <DependentUpon>MainScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddingAndRemovingStudents.resx">
-      <DependentUpon>AddingAndRemovingStudents.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StudentList.resx">
       <DependentUpon>StudentList.cs</DependentUpon>

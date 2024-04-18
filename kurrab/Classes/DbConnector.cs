@@ -268,5 +268,20 @@ namespace kurrab.Classes
             }
             return userHash;
         }
+        public static DataSet getAttendanceReport()
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                string sql = "SELECT * FROM AttendanceReport";
+                DataSet ds = new DataSet();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                adapter.Fill(ds, "AttendanceReport");
+
+                return ds;
+            }
+        }
     }
 }

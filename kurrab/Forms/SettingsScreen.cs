@@ -125,5 +125,10 @@ namespace kurrab.Forms
 
             // 4. обнулить значения текстовых полей в каждом элементе этой формы 
         }
+
+        private void jobtitles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
