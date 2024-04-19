@@ -7,7 +7,7 @@
 
 # database lock files
 *.laccdb
-
+*.accdb
 *.cache
 
 **/bin
