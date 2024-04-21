@@ -44,12 +44,6 @@ namespace kurrab.Forms
             listteachersForm.ShowDialog();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            Registration = new Registration();
-            Registration.ShowDialog();
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             studentlistForm = new StudentList();

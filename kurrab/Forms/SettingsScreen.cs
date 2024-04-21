@@ -10,6 +10,7 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Data.SqlClient;
 
 namespace kurrab.Forms
 {
@@ -18,6 +19,22 @@ namespace kurrab.Forms
         public SettingsScreen()
         {
             InitializeComponent();
+            this.dataGridView1.AutoGenerateColumns = true;
+
+            // Automatically resize the visible rows.
+            dataGridView1.AutoSizeRowsMode =
+                DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+
+            // Set the DataGridView control's border.
+            dataGridView1.BorderStyle = BorderStyle.Fixed3D;
+
+            // Put the cells in edit mode when user enters them.
+            dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically; // prohibit editing
+
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+            this.dataGridView1.DataSource = DbConnector.getStudentList();
+            this.dataGridView1.DataMember = "liststudents";
         }
 
         private void SettingsScreen_Load(object sender, EventArgs e)
@@ -72,6 +89,11 @@ namespace kurrab.Forms
             else
             {
                 MessageBox.Show("Новый пароль не совпадает с его повторением!");
+            }
+            if (string.IsNullOrWhiteSpace(currentPassword) || string.IsNullOrWhiteSpace(newPassword) || string.IsNullOrWhiteSpace(repeatPassword))
+            {
+                MessageBox.Show("Все поля должны быть заполнены");
+                return;
             }
         }
         private string GetHashedPasswordFromDB()
@@ -129,6 +151,41 @@ namespace kurrab.Forms
         private void jobtitles_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void currentpassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                var primaryKeyValue = dataGridView1.SelectedRows[0].Cells["ID"].Value;
+                string connectionString = "server=172.20.7.45;port=3306;username=st3996_24;password=pwd3996_24;database=db_3996_24_idz";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string sql = "DELETE FROM liststudents WHERE ID= @ID";
+                    SqlCommand command = new SqlCommand(sql, connection);
+                    command.Parameters.AddWithValue("ID", primaryKeyValue);
+                    command.ExecuteNonQuery();
+
+                    MessageBox.Show("Запись успешно удалена из базы данных.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Пожалуйста, выберите строку для удаления.");
+            }
         }
     }
 }

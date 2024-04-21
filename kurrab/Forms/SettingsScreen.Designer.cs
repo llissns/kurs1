@@ -59,7 +59,6 @@
             this.speciality = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -77,21 +76,22 @@
             // 
             // currentpassword
             // 
-            this.currentpassword.Location = new System.Drawing.Point(645, 432);
+            this.currentpassword.Location = new System.Drawing.Point(633, 352);
             this.currentpassword.Name = "currentpassword";
             this.currentpassword.Size = new System.Drawing.Size(100, 22);
             this.currentpassword.TabIndex = 1;
+            this.currentpassword.TextChanged += new System.EventHandler(this.currentpassword_TextChanged);
             // 
             // newpassword
             // 
-            this.newpassword.Location = new System.Drawing.Point(645, 475);
+            this.newpassword.Location = new System.Drawing.Point(633, 394);
             this.newpassword.Name = "newpassword";
             this.newpassword.Size = new System.Drawing.Size(100, 22);
             this.newpassword.TabIndex = 2;
             // 
             // repeatpassword
             // 
-            this.repeatpassword.Location = new System.Drawing.Point(645, 512);
+            this.repeatpassword.Location = new System.Drawing.Point(633, 431);
             this.repeatpassword.Name = "repeatpassword";
             this.repeatpassword.Size = new System.Drawing.Size(100, 22);
             this.repeatpassword.TabIndex = 3;
@@ -100,7 +100,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(519, 386);
+            this.label2.Location = new System.Drawing.Point(519, 296);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(153, 21);
             this.label2.TabIndex = 4;
@@ -109,7 +109,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(451, 435);
+            this.label3.Location = new System.Drawing.Point(451, 355);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(117, 16);
             this.label3.TabIndex = 5;
@@ -118,7 +118,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(451, 478);
+            this.label4.Location = new System.Drawing.Point(451, 397);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 16);
             this.label4.TabIndex = 6;
@@ -127,7 +127,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(451, 515);
+            this.label5.Location = new System.Drawing.Point(451, 434);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(132, 16);
             this.label5.TabIndex = 7;
@@ -135,7 +135,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(523, 570);
+            this.button1.Location = new System.Drawing.Point(523, 473);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(119, 23);
             this.button1.TabIndex = 8;
@@ -319,9 +319,9 @@
             this.label16.Font = new System.Drawing.Font("Times New Roman", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label16.Location = new System.Drawing.Point(495, 45);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(193, 21);
+            this.label16.Size = new System.Drawing.Size(181, 21);
             this.label16.TabIndex = 29;
-            this.label16.Text = "Добавление и удаление";
+            this.label16.Text = "Удаление студентов";
             // 
             // dataGridView1
             // 
@@ -330,30 +330,24 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(342, 219);
+            this.dataGridView1.Size = new System.Drawing.Size(342, 157);
             this.dataGridView1.TabIndex = 30;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(425, 328);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(98, 23);
-            this.button3.TabIndex = 31;
-            this.button3.Text = "Добавить";
-            this.button3.UseVisualStyleBackColor = true;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.Click += new System.EventHandler(this.button4_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(544, 328);
+            this.button4.Location = new System.Drawing.Point(470, 244);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(98, 23);
             this.button4.TabIndex = 32;
             this.button4.Text = "Удалить";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(670, 328);
+            this.button5.Location = new System.Drawing.Point(636, 244);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(97, 23);
             this.button5.TabIndex = 33;
@@ -364,10 +358,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 607);
+            this.ClientSize = new System.Drawing.Size(802, 510);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.speciality);
@@ -441,7 +434,6 @@
         private System.Windows.Forms.ComboBox speciality;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
     }
