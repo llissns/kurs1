@@ -57,6 +57,8 @@ namespace kurrab.Forms
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            absencerecordForm = new absencerecord();
+            absencerecordForm.ShowDialog();
         }
     }
 }

@@ -32,13 +32,13 @@ namespace kurrab
         {
             comboBox1.DataBindings.Clear();
             comboBox1.DataSource = DbConnector.getAttendanceReport().Tables[0];
-            comboBox1.DisplayMember = "AttendanceReport";
-            comboBox1.ValueMember = "student_id";
+            comboBox1.DisplayMember = "student_id";
+            comboBox1.ValueMember = "id";
 
             comboBox2.DataBindings.Clear();
             comboBox2.DataSource = DbConnector.getAttendanceReport().Tables[0];
-            comboBox2.DisplayMember = "AttendanceReport";
-            comboBox2.ValueMember = "subject";
+            comboBox2.DisplayMember = "subject";
+            comboBox2.ValueMember = "id";
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
