@@ -36,9 +36,9 @@ namespace kurrab
             comboBox1.ValueMember = "id";
 
             comboBox2.DataBindings.Clear();
-            comboBox2.DataSource = DbConnector.getAttendanceReport().Tables[0];
+            comboBox2.DataSource = DbConnector.getSubject().Tables[0];
             comboBox2.DisplayMember = "subject";
-            comboBox2.ValueMember = "id";
+            comboBox2.ValueMember = "ID";
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)

@@ -39,7 +39,20 @@ namespace kurrab.Classes
                 return ds;
             }
         }
+        public static DataSet getSubject()
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = "SELECT * FROM subject";
+                DataSet ds = new DataSet();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                adapter.Fill(ds, "subject");
 
+                return ds;
+            }
+        }
         public static DataSet getSpeciality()
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
