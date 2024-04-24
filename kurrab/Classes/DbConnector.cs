@@ -297,23 +297,22 @@ namespace kurrab.Classes
                 MessageBox.Show("Запись успешно удалена из базы данных.");
             }
         }
-        public static DataSet putAttendanceRecord(int studentid,int groupsid,int subjectid, string abscensedate)
+        public static void putAttendanceRecord(int studentid,int groupsid,int subjectid, string abscensedate)
         {
+            string sql = "INSERT INTO AttendanceRecord(`student_id`,`groups`,`subject`,`abscense`) VALUES (@studentid,@groupsid,@subjectid, @abscensedate)";
+
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
 
-                string sql = "INSERT INTO AttendanceRecord(`student_id`,`groups`,`subject`,`abscense`) VALUES (@studentid,@groupsid,@subjectid, @abscensedate)";
-                DataSet ds = new DataSet();
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@studentid", studentid);
-                cmd.Parameters.AddWithValue("@groupsid", groupsid);
-                cmd.Parameters.AddWithValue("@subjectid", subjectid);
-                cmd.Parameters.AddWithValue("@abscenseid", abscensedate);
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                adapter.Fill(ds, "AttendanceReport");
-
-                return ds;
+                MySqlCommand command = new MySqlCommand(sql, conn);
+                command.Parameters.AddWithValue("@studentid", studentid);
+                command.Parameters.AddWithValue("@groupsid", groupsid);
+                command.Parameters.AddWithValue("@subjectid", subjectid);
+                command.Parameters.AddWithValue("@abscenseid", abscensedate);
+                
+                // executing current query
+                command.ExecuteNonQuery();
             }
         }
     }
