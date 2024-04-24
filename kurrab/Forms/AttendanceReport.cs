@@ -59,6 +59,9 @@ namespace kurrab.Forms
         {
             absencerecordForm = new absencerecord();
             absencerecordForm.ShowDialog();
+
+            this.dataGridView1.DataSource = DbConnector.getAttendanceReport();
+            this.dataGridView1.DataMember = "AttendanceReport";
         }
     }
 }

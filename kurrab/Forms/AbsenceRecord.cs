@@ -20,7 +20,8 @@ namespace kurrab
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            DbConnector.putAttendanceRecord(comboBox1.SelectedValue, comboBox2.SelectedValue, dateTimePicker1.Value.ToString("yyyy-MM-dd"));
+            this.Close();
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -31,8 +32,8 @@ namespace kurrab
         private void Form1_Load(object sender, EventArgs e)
         {
             comboBox1.DataBindings.Clear();
-            comboBox1.DataSource = DbConnector.getAttendanceReport().Tables[0];
-            comboBox1.DisplayMember = "student_id";
+            comboBox1.DataSource = DbConnector.getStudentList().Tables[0];
+            comboBox1.DisplayMember = "surname";
             comboBox1.ValueMember = "id";
 
             comboBox2.DataBindings.Clear();

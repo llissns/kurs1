@@ -310,9 +310,9 @@ namespace kurrab.Classes
                 MessageBox.Show("Запись успешно удалена из базы данных.");
             }
         }
-        public static void putAttendanceRecord(int studentid,int groupsid,int subjectid, string abscensedate)
+        public static void putAttendanceRecord(object studentid,object subjectid, string abscensedate)
         {
-            string sql = "INSERT INTO AttendanceRecord(`student_id`,`groups`,`subject`,`abscense`) VALUES (@studentid,@groupsid,@subjectid, @abscensedate)";
+            string sql = "INSERT INTO AttendanceReport(`student_id`,`subject`,`abscense`) VALUES (@studentid,@subjectid, @abscensedate)";
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -320,7 +320,6 @@ namespace kurrab.Classes
 
                 MySqlCommand command = new MySqlCommand(sql, conn);
                 command.Parameters.AddWithValue("@studentid", studentid);
-                command.Parameters.AddWithValue("@groupsid", groupsid);
                 command.Parameters.AddWithValue("@subjectid", subjectid);
                 command.Parameters.AddWithValue("@abscensedate", abscensedate);
                 
