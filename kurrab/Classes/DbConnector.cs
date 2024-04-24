@@ -309,7 +309,7 @@ namespace kurrab.Classes
                 command.Parameters.AddWithValue("@studentid", studentid);
                 command.Parameters.AddWithValue("@groupsid", groupsid);
                 command.Parameters.AddWithValue("@subjectid", subjectid);
-                command.Parameters.AddWithValue("@abscenseid", abscensedate);
+                command.Parameters.AddWithValue("@abscensedate", abscensedate);
                 
                 // executing current query
                 command.ExecuteNonQuery();
