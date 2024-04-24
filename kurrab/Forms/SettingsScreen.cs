@@ -167,25 +167,25 @@ namespace kurrab.Forms
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                var primaryKeyValue = dataGridView1.SelectedRows[0].Cells["ID"].Value;
-                string connectionString = "server=172.20.7.45;port=3306;username=st3996_24;password=pwd3996_24;database=db_3996_24_idz";
+                var primaryKeyValue = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
 
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    string sql = "DELETE FROM liststudents WHERE ID= @ID";
-                    SqlCommand command = new SqlCommand(sql, connection);
-                    command.Parameters.AddWithValue("ID", primaryKeyValue);
-                    command.ExecuteNonQuery();
-
-                    MessageBox.Show("Запись успешно удалена из базы данных.");
-                }
+                DbConnector DbConnector = new DbConnector();
+                DbConnector.DeleteRecord(primaryKeyValue);
             }
             else
             {
                 MessageBox.Show("Пожалуйста, выберите строку для удаления.");
             }
+        }
+
+        private void surname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

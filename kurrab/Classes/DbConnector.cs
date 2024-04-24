@@ -170,7 +170,7 @@ namespace kurrab.Classes
             {
                 conn.Open();
 
-                string sql = "SELECT * FROM listteacher";
+                string sql = "SELECT * FROM teacher_info";
                 DataSet ds = new DataSet();
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
@@ -274,13 +274,27 @@ namespace kurrab.Classes
             {
                 conn.Open();
 
-                string sql = "SELECT * FROM AttendanceReport";
+                string sql = "SELECT * FROM attendancereport_info";
                 DataSet ds = new DataSet();
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 adapter.Fill(ds, "AttendanceReport");
 
                 return ds;
+            }
+        }
+        public void DeleteRecord(int recordID)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string sql = "DELETE FROM liststudents WHERE ID = @ID";
+                MySqlCommand command = new MySqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@ID", recordID);
+                command.ExecuteNonQuery();
+
+                MessageBox.Show("Запись успешно удалена из базы данных.");
             }
         }
     }

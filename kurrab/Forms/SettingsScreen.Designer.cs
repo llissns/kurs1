@@ -37,7 +37,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.surname = new System.Windows.Forms.TextBox();
             this.name = new System.Windows.Forms.TextBox();
             this.patronymic = new System.Windows.Forms.TextBox();
             this.email = new System.Windows.Forms.TextBox();
@@ -60,7 +59,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.surname = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -142,13 +141,6 @@
             this.button1.Text = "Сохранить";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // surname
-            // 
-            this.surname.Location = new System.Drawing.Point(155, 81);
-            this.surname.Name = "surname";
-            this.surname.Size = new System.Drawing.Size(121, 22);
-            this.surname.TabIndex = 9;
             // 
             // name
             // 
@@ -333,11 +325,10 @@
             this.dataGridView1.Size = new System.Drawing.Size(342, 157);
             this.dataGridView1.TabIndex = 30;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.Click += new System.EventHandler(this.button4_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(470, 244);
+            this.button4.Location = new System.Drawing.Point(669, 244);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(98, 23);
             this.button4.TabIndex = 32;
@@ -345,21 +336,19 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
+            // surname
             // 
-            this.button5.Location = new System.Drawing.Point(636, 244);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(97, 23);
-            this.button5.TabIndex = 33;
-            this.button5.Text = "Сохранить";
-            this.button5.UseVisualStyleBackColor = true;
+            this.surname.Location = new System.Drawing.Point(155, 81);
+            this.surname.Name = "surname";
+            this.surname.Size = new System.Drawing.Size(121, 22);
+            this.surname.TabIndex = 9;
+            this.surname.TextChanged += new System.EventHandler(this.surname_TextChanged);
             // 
             // SettingsScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(802, 510);
-            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label16);
@@ -412,7 +401,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox surname;
         private System.Windows.Forms.TextBox name;
         private System.Windows.Forms.TextBox patronymic;
         private System.Windows.Forms.TextBox email;
@@ -435,6 +423,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox surname;
     }
 }
