@@ -11,27 +11,20 @@ using System.Windows.Forms;
 
 namespace kurrab.Forms
 {
+    // форма отвечает за отчет о посещаемости студентов. есть поиск
     public partial class AttendanceReport : Form
     {
+        // это дочерняя форма позволяет добавить запись в отчет о посещаемости
         Form absencerecordForm;
         public AttendanceReport()
         {
             InitializeComponent();
-            // Fill the DataSet.
             this.dataGridView1.AutoGenerateColumns = true;
-
-            // Automatically resize the visible rows.
             dataGridView1.AutoSizeRowsMode =
                 DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-
-            // Set the DataGridView control's border.
             dataGridView1.BorderStyle = BorderStyle.Fixed3D;
-
-            // Put the cells in edit mode when user enters them.
-            dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically; // prohibit editing
-
+            dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
             this.dataGridView1.DataSource = DbConnector.getAttendanceReport();
             this.dataGridView1.DataMember = "AttendanceReport";
         }
@@ -55,11 +48,16 @@ namespace kurrab.Forms
 
         }
 
+        // эта кнопка открывает дочернюю форму где можно добавить запись в отчет о посещаемости
         private void button1_Click_1(object sender, EventArgs e)
         {
+            // создаем новый класс формы
             absencerecordForm = new absencerecord();
+
+            // отображаем на экране
             absencerecordForm.ShowDialog();
 
+            // загружаем в датагрид текущей формы обновленную информацию о посещаемости студентов (тк дочерняя форма могла добавить туда запись)
             this.dataGridView1.DataSource = DbConnector.getAttendanceReport();
             this.dataGridView1.DataMember = "AttendanceReport";
         }

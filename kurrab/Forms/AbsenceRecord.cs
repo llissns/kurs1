@@ -18,6 +18,8 @@ namespace kurrab
             InitializeComponent();
         }
 
+        // по нажатию кнопки добавляем запись о пропуске студентом предмета
+        // содержит ИД студента со всей инфомрацией о нем, предмет пропущенный и дату пропуска
         private void button1_Click(object sender, EventArgs e)
         {
             DbConnector.putAttendanceRecord(comboBox1.SelectedValue, comboBox2.SelectedValue, dateTimePicker1.Value.ToString("yyyy-MM-dd"));
@@ -29,6 +31,7 @@ namespace kurrab
 
         }
 
+        // при загрузке формы загружаем данные в компоненты для быстрого выбора
         private void Form1_Load(object sender, EventArgs e)
         {
             comboBox1.DataBindings.Clear();
