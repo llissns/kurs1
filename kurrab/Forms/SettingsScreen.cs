@@ -42,7 +42,7 @@ namespace kurrab.Forms
             // loading titles
             jobtitles.DataBindings.Clear();
             jobtitles.DataSource = DbConnector.getTitle().Tables[0];
-            jobtitles.DisplayMember = "jobtitle";
+            jobtitles.DisplayMember = "values";
             jobtitles.ValueMember = "ID";
 
             // loading speciality

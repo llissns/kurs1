@@ -165,7 +165,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainScreen";
             this.Text = "главный экран";
-            this.Load += new System.EventHandler(this.MainScreen_Load);
+            //this.Load += new System.EventHandler(this.MainScreen_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
