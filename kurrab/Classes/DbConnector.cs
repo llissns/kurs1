@@ -249,6 +249,24 @@ namespace kurrab.Classes
                 }
             }
         }
+        // возвращает отчет о посещаемости (поиск)
+        public static DataSet searchAttendanceReport(int groupname, string subject)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                string sql = "SELECT * FROM attendancereport_info WHERE groupname = @groupname AND subject = @subject";
+                DataSet ds = new DataSet();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@groupname", groupname);
+                cmd.Parameters.AddWithValue("@subject", subject);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                adapter.Fill(ds, "AttendanceReport");
+
+                return ds;
+            }
+        }
 
         // удалет запись об определенном студенте
         public void DeleteRecord(int recordID)
